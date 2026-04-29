@@ -2,9 +2,10 @@ name: Refresh heatmap data
 
 on:
   schedule:
-    # 22:00 UTC daily = 08:00 AEST (UTC+10) / 09:00 AEDT (UTC+11)
-    # Reference time is AEST; during AEDT (Oct–Apr) it runs at 9am Sydney time.
-    - cron: '0 22 * * *'
+    # ── TEST SLOT ──
+    # 00:00 UTC = 10:00 AEST (UTC+10) / 11:00 AEDT (UTC+11)
+    # Set for one-shot test; revert to 8am production schedule afterwards.
+    - cron: '0 0 * * *'
   workflow_dispatch:
     inputs:
       strict_pii:
