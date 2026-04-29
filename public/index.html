@@ -2,15 +2,742 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>NZF Heatmap — Coming soon</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NZF Australia — Community Need Map</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQGEJHEaIm+PgoUaZbRvQTNTluNOEfb1ZRy6D3BOw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"
+        integrity="sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <style>
-  body { font-family: system-ui, sans-serif; max-width: 600px; margin: 80px auto; padding: 0 24px; color: #1a1a1a; }
-  h1 { color: #BE1E2D; margin-bottom: 8px; }
-  code { background: #f5f5f5; padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#1A1A1A;height:100vh;display:flex;flex-direction:column;overflow:hidden;}
+
+/* ── Loading overlay ── */
+#loading-overlay{
+  position:fixed;inset:0;background:#fff;z-index:99999;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
+  transition:opacity .5s ease;
+}
+#loading-overlay.fade-out{opacity:0;pointer-events:none;}
+.loader-title{font-size:18px;font-weight:700;color:#1A1A1A;}
+.loader-sub{font-size:12px;color:#999;}
+.loader-bar-wrap{width:240px;height:5px;background:#f0e8e9;border-radius:4px;overflow:hidden;}
+.loader-bar{height:100%;width:0%;background:linear-gradient(90deg,#BE1E2D,#e8505f);border-radius:4px;transition:width .4s ease;}
+.loader-status{font-size:11px;color:#BE1E2D;font-weight:600;letter-spacing:.3px;min-height:16px;}
+
+/* ── Error overlay ── */
+#error-overlay{
+  position:fixed;inset:0;background:#fff;z-index:99999;
+  display:none;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+}
+.err-icon{font-size:42px;}
+.err-title{font-size:16px;font-weight:700;color:#BE1E2D;}
+.err-msg{font-size:13px;color:#666;text-align:center;max-width:340px;line-height:1.6;}
+.err-detail{font-size:11px;color:#aaa;font-family:monospace;background:#fafafa;padding:8px 14px;border-radius:6px;max-width:340px;word-break:break-all;}
+.err-retry{margin-top:6px;padding:9px 24px;background:#BE1E2D;color:#fff;border:none;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;}
+.err-retry:hover{background:#a01020;}
+
+/* ── Header ── */
+.hdr{background:#fff;border-bottom:1px solid #eee;padding:12px 22px;display:flex;align-items:center;justify-content:space-between;z-index:900;box-shadow:0 1px 6px rgba(0,0,0,.05);flex-shrink:0;}
+.hdr-left{display:flex;align-items:center;gap:13px;}
+.hdr h1{font-size:16px;font-weight:700;color:#1A1A1A;display:flex;align-items:center;gap:8px;}
+.hdr p{font-size:11px;color:#999;margin-top:1px;}
+.live-badge{display:inline-flex;align-items:center;gap:4px;background:#BE1E2D;color:#fff;font-size:9px;font-weight:800;letter-spacing:.8px;padding:2px 6px;border-radius:4px;animation:livepulse 1.4s ease-in-out infinite;}
+.live-dot{width:5px;height:5px;background:#fff;border-radius:50%;}
+@keyframes livepulse{0%,100%{opacity:1;}50%{opacity:.25;}}
+
+/* ── Time slider bar ── */
+#slider-bar{
+  background:#fff;border-bottom:3px solid #BE1E2D;
+  padding:10px 22px 12px;flex-shrink:0;
+  box-shadow:0 2px 10px rgba(0,0,0,.07);
+  z-index:899;
+}
+.slider-inner{display:flex;align-items:center;gap:14px;max-width:700px;margin:0 auto;}
+.slider-label-text{font-size:11px;font-weight:700;color:#BE1E2D;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;}
+.slider-track-wrap{flex:1;position:relative;padding:4px 0;}
+
+/* Range input styling */
+input[type=range]{
+  -webkit-appearance:none;appearance:none;
+  width:100%;height:5px;border-radius:3px;outline:none;cursor:pointer;
+  background:linear-gradient(to right, #BE1E2D 0%, #BE1E2D var(--pct,100%), #e8e0e1 var(--pct,100%), #e8e0e1 100%);
+}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;
+  width:20px;height:20px;border-radius:50%;
+  background:#BE1E2D;border:3px solid #fff;
+  box-shadow:0 1px 6px rgba(190,30,45,.4);
+  cursor:pointer;transition:transform .15s,box-shadow .15s;
+}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15);box-shadow:0 2px 10px rgba(190,30,45,.5);}
+input[type=range]::-moz-range-thumb{
+  width:20px;height:20px;border-radius:50%;
+  background:#BE1E2D;border:3px solid #fff;
+  box-shadow:0 1px 6px rgba(190,30,45,.4);cursor:pointer;
+}
+
+.slider-value-pill{
+  background:#BE1E2D;color:#fff;
+  font-size:12px;font-weight:800;
+  padding:4px 12px;border-radius:20px;
+  white-space:nowrap;min-width:80px;text-align:center;
+  letter-spacing:.2px;
+}
+.slider-tick-row{position:relative;height:16px;padding:3px 0 0;font-size:9.5px;color:#bbb;}
+.slider-tick-row span{position:absolute;transform:translateX(-50%);white-space:nowrap;}
+.slider-tick-row span:first-child{transform:translateX(0);}
+.slider-tick-row span:last-child{transform:translateX(-100%);}
+
+/* ── Search label ── */
+.search-label{font-size:10px;font-weight:700;color:#BE1E2D;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;}
+
+/* ── Search ── */
+.search-wrap{position:relative;width:260px;}
+.search-input{width:100%;padding:8px 36px 8px 14px;border:1.5px solid #e0e0e0;border-radius:22px;font-size:13px;font-family:inherit;outline:none;color:#1A1A1A;background:#fff;transition:border-color .2s,box-shadow .2s;}
+.search-input:focus{border-color:#BE1E2D;box-shadow:0 0 0 3px rgba(190,30,45,.1);}
+.search-input::placeholder{color:#bbb;}
+.search-icon{position:absolute;right:11px;top:50%;transform:translateY(-50%);color:#bbb;pointer-events:none;font-size:14px;}
+.search-clear{position:absolute;right:11px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#999;font-size:15px;line-height:1;display:none;padding:0;}
+.search-clear:hover{color:#BE1E2D;}
+.search-dropdown{position:absolute;top:calc(100% + 5px);left:0;right:0;background:#fff;border:1.5px solid #e8e8e8;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,.12);z-index:9998;overflow:hidden;max-height:260px;overflow-y:auto;}
+.search-item{padding:9px 14px;cursor:pointer;border-bottom:1px solid #f5f5f5;display:flex;align-items:center;gap:10px;transition:background .15s;}
+.search-item:last-child{border-bottom:none;}
+.search-item:hover,.search-item.active{background:#fff5f5;}
+.search-item-pc{font-weight:700;font-size:13px;color:#BE1E2D;min-width:42px;}
+.search-item-sub{font-size:12px;color:#555;flex:1;}
+.search-item-n{font-size:11px;color:#aaa;white-space:nowrap;}
+.search-no-results{padding:12px 14px;font-size:13px;color:#aaa;text-align:center;}
+
+/* Last-updated indicator (small text below subtitle) */
+.last-updated{font-size:10px;color:#bbb;margin-top:1px;}
+
+#map{flex:1;z-index:1;}
+
+/* ── Sidebar ── */
+#sidebar{
+  position:fixed;top:0;right:-430px;width:410px;height:100vh;
+  background:#fff;box-shadow:-4px 0 28px rgba(0,0,0,.15);
+  z-index:9999;transition:right .32s cubic-bezier(.4,0,.2,1);
+  display:flex;flex-direction:column;
+}
+#sidebar.open{right:0;}
+@media(max-width:600px){
+  #sidebar{width:100vw;right:-100vw;}
+  #sidebar.open{right:0;}
+}
+.sb-head{background:#BE1E2D;color:#fff;padding:18px 18px 16px;position:relative;flex-shrink:0;}
+.sb-close{position:absolute;top:12px;right:14px;background:rgba(255,255,255,.22);border:none;cursor:pointer;color:#fff;font-size:15px;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.sb-close:hover{background:rgba(255,255,255,.38);}
+.sb-postcode{font-size:34px;font-weight:900;line-height:1;}
+.sb-suburb{font-size:12px;opacity:.85;margin-top:2px;letter-spacing:.2px;}
+.sb-badge{margin-top:10px;display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.2);border-radius:20px;padding:4px 12px;font-size:12px;font-weight:600;}
+.sb-badge .dot{width:7px;height:7px;background:#fff;border-radius:50%;}
+.sb-body{flex:1;overflow-y:auto;padding:14px;}
+.sb-body::-webkit-scrollbar{width:4px;}
+.sb-body::-webkit-scrollbar-thumb{background:#e8c8c8;border-radius:4px;}
+.sb-label{font-size:11px;color:#BE1E2D;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:10px;padding-bottom:7px;border-bottom:2px solid #f5f5f5;}
+.ccard{background:#fff;border:1px solid #eee;border-radius:10px;padding:12px 13px;margin-bottom:9px;transition:box-shadow .15s;}
+.ccard:hover{box-shadow:0 2px 10px rgba(190,30,45,.1);border-color:#f0c0c0;}
+.ccard-summary{font-size:13.5px;line-height:1.5;color:#1A1A1A;font-weight:500;margin-bottom:8px;}
+.tags{display:flex;flex-wrap:wrap;gap:4px;}
+.tag{font-size:10px;padding:2px 7px;border-radius:12px;background:#fff0f1;color:#BE1E2D;border:1px solid #f5c5c8;font-weight:600;}
+.ccard-date{font-size:10px;color:#bbb;margin-top:5px;}
+.no-cases{text-align:center;color:#ccc;font-size:13px;padding:30px 0;}
+
+/* Mobile count pill — fixed top-right */
+#mob-pill{
+  display:none;
+  position:fixed;top:10px;right:12px;z-index:950;
+  background:rgba(255,255,255,0.93);
+  border:1px solid rgba(190,30,45,0.18);
+  border-radius:16px;padding:3px 10px;
+  align-items:baseline;gap:4px;
+  box-shadow:0 1px 5px rgba(0,0,0,0.08);
+  pointer-events:none;
+}
+#mob-pill-num{font-size:12px;font-weight:700;color:#BE1E2D;line-height:1;}
+#mob-pill-lbl{font-size:9px;color:#aaa;text-transform:uppercase;letter-spacing:.3px;}
+
+/* ── Mobile ── */
+@media(max-width:600px){
+  .hdr{flex-wrap:wrap;gap:10px;padding:10px 14px;}
+  .hdr-left{flex:1 1 100%;}
+  #case-counter{display:none!important;}
+  #mob-pill{display:flex;}
+  .search-wrap{flex:1 1 100%;width:100%;}
+  .search-input{font-size:16px;padding:12px 40px 12px 16px;border-radius:28px;}
+  .search-label{font-size:11px;}
+  #slider-bar{padding:10px 14px 12px;}
+  .slider-tick-row{display:none;}
+}
+
+.hint{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:rgba(26,26,26,.78);color:#fff;padding:8px 18px;border-radius:20px;font-size:12px;z-index:800;pointer-events:none;transition:opacity .6s;}
+.hint.gone{opacity:0;}
+.disclaimer{position:fixed;bottom:0;left:0;right:0;text-align:center;font-size:10.5px;color:#aaa;background:rgba(255,255,255,.92);border-top:1px solid #f0f0f0;padding:5px 14px;z-index:700;pointer-events:none;letter-spacing:.1px;}
+.leaflet-popup-content-wrapper{border-radius:10px!important;border-top:3px solid #BE1E2D!important;}
+.leaflet-popup-content{font-family:'Segoe UI',sans-serif!important;font-size:13px!important;line-height:1.5!important;}
 </style>
 </head>
 <body>
-  <h1>NZF Heatmap</h1>
-  <p>The frontend is being rebuilt. The data pipeline is live and refreshing daily — see <code>/data/heatmap.json</code>.</p>
+
+<!-- Loading overlay -->
+<div id="loading-overlay">
+  <div class="loader-title">NZF Community Need Map</div>
+  <div class="loader-sub">Loading live case information…</div>
+  <div class="loader-bar-wrap"><div class="loader-bar" id="loader-bar"></div></div>
+  <div class="loader-status" id="loader-status">Connecting…</div>
+</div>
+
+<!-- Error overlay -->
+<div id="error-overlay">
+  <div class="err-icon">⚠️</div>
+  <div class="err-title">Unable to load data</div>
+  <div class="err-msg">Could not fetch the latest case data. Please check your connection and try again.</div>
+  <div class="err-detail" id="err-detail"></div>
+  <button class="err-retry" onclick="location.reload()">↺ Retry</button>
+</div>
+
+<!-- Header -->
+<div class="hdr">
+  <div class="hdr-left">
+    <div>
+      <h1>Your Community Pulse <span class="live-badge"><span class="live-dot"></span>LIVE</span></h1>
+      <p id="hdr-sub">National Zakat Foundation Australia &nbsp;&middot;&nbsp; Loading…</p>
+      <p class="last-updated" id="last-updated"></p>
+    </div>
+  </div>
+  <div id="case-counter" style="display:none;text-align:center;background:#fff5f5;border:1px solid #f0c0c3;border-radius:8px;padding:5px 16px;flex-shrink:0;">
+    <span id="counter-num" style="font-size:22px;font-weight:800;color:#BE1E2D;display:block;line-height:1.1;">—</span>
+    <span id="counter-lbl" style="font-size:10px;color:#999;text-transform:uppercase;letter-spacing:.4px;">Cases</span>
+  </div>
+  <div class="search-wrap" id="search-wrap">
+    <div class="search-label">Search for a postcode or suburb</div>
+    <input type="text" class="search-input" id="search-input" placeholder="e.g. 2000 or Auburn…" autocomplete="off" spellcheck="false"/>
+    <span class="search-icon" id="search-icon">&#9906;</span>
+    <button class="search-clear" id="search-clear">&#10005;</button>
+    <div class="search-dropdown" id="search-dropdown" style="display:none;"></div>
+  </div>
+</div>
+
+<!-- Time period slider -->
+<div id="slider-bar">
+  <div class="slider-inner">
+    <span class="slider-label-text">Time period</span>
+    <div class="slider-track-wrap">
+      <input type="range" id="week-slider" min="1" max="52" value="6" step="1"/>
+      <div class="slider-tick-row">
+        <span style="left:0%">1 week</span>
+        <span style="left:5.88%">4 wks</span>
+        <span style="left:23.53%">13 wks</span>
+        <span style="left:49.02%">26 wks</span>
+        <span style="left:100%">All (52 wks)</span>
+      </div>
+    </div>
+    <div class="slider-value-pill" id="slider-pill">Last 6 weeks</div>
+  </div>
+</div>
+
+<div id="map"></div>
+
+<div id="sidebar">
+  <div class="sb-head">
+    <button class="sb-close" id="sb-close-btn">&#10005;</button>
+    <div class="sb-postcode" id="sb-pc">&mdash;</div>
+    <div class="sb-suburb" id="sb-sub">&mdash;</div>
+    <div class="sb-badge"><div class="dot"></div><span id="sb-n">&mdash;</span>&thinsp;applications this period</div>
+  </div>
+  <div class="sb-body">
+    <div class="sb-label" id="sb-label">Applications from this community</div>
+    <div id="sb-cases"></div>
+  </div>
+</div>
+
+<div class="hint" id="hint">Click any marker to see anonymised cases from that community</div>
+<div class="disclaimer">&#8505; Application data may take up to 24 hours to reflect recent submissions &nbsp;·&nbsp; Cases involving family violence are excluded for privacy</div>
+
+<div id="mob-pill">
+  <span id="mob-pill-num">—</span>
+  <span id="mob-pill-lbl">cases</span>
+</div>
+
+<script>
+(function(){
+
+// ── CONFIG ────────────────────────────────────────────────────────────────────
+var DATA_URL = 'data/heatmap.json';
+var META_URL = 'data/meta.json';
+var SEARCH_RADIUS_KM = 5;
+var MAX_WEEKS = 52;
+// ─────────────────────────────────────────────────────────────────────────────
+
+// Status display config — keys are lowercased exact values from the new payload
+var SM = {
+  'pending review':             {label:'Pending Review',           color:'#b35c00', bg:'#fff3e5'},
+  'closed - not assisted':      {label:'Closed - Not Assisted',    color:'#888',    bg:'#f4f4f4'},
+  'under assessment':           {label:'Under Assessment',         color:'#1a5fa0', bg:'#e5f0fa'},
+  'successfully assisted':      {label:'Successfully Assisted',    color:'#2e7d32', bg:'#e6f4ea'},
+  'being assisted':             {label:'Being Assisted',           color:'#1a7a3e', bg:'#e8f5ee'}
+};
+function resolveStatus(raw){
+  if(!raw) return SM['closed - not assisted'];
+  var s = String(raw).toLowerCase().trim();
+  if(SM[s]) return SM[s];
+  if(s.indexOf('successfully assisted') !== -1) return SM['successfully assisted'];
+  if(s.indexOf('being assisted')        !== -1) return SM['being assisted'];
+  if(s.indexOf('under assessment')      !== -1) return SM['under assessment'];
+  if(s.indexOf('pending')               !== -1) return SM['pending review'];
+  return SM['closed - not assisted'];
+}
+
+function setLoader(pct, msg){
+  document.getElementById('loader-bar').style.width = pct + '%';
+  document.getElementById('loader-status').textContent = msg;
+}
+function showError(detail){
+  document.getElementById('loading-overlay').style.display = 'none';
+  var eo = document.getElementById('error-overlay');
+  eo.style.display = 'flex';
+  document.getElementById('err-detail').textContent = detail || '';
+}
+
+function esc(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// Format date strings of the form "29 Apr, 2025 00:00:00" or ISO timestamps.
+// Returns {ms, label} or null if unparseable.
+function parseCaseDate(raw){
+  if(!raw) return null;
+  // Try native parser first (handles ISO and most formats)
+  var dt = new Date(raw);
+  if(!isNaN(dt)) {
+    return {
+      ms: dt.getTime(),
+      label: dt.toLocaleDateString('en-AU', {day:'numeric', month:'short', year:'numeric'})
+    };
+  }
+  // Manual parse for "29 Apr, 2025 00:00:00" style
+  var m = String(raw).match(/^(\d{1,2})\s+(\w+),?\s+(\d{4})/);
+  if(m){
+    var months = {jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,oct:9,nov:10,dec:11};
+    var monKey = m[2].toLowerCase().slice(0,3);
+    if(months.hasOwnProperty(monKey)){
+      var d = new Date(parseInt(m[3]), months[monKey], parseInt(m[1]));
+      if(!isNaN(d)){
+        return {
+          ms: d.getTime(),
+          label: d.toLocaleDateString('en-AU', {day:'numeric', month:'short', year:'numeric'})
+        };
+      }
+    }
+  }
+  return null;
+}
+
+// Haversine distance (km) between two lat/lng points
+function haversine(lat1, lng1, lat2, lng2){
+  var R    = 6371;
+  var dLat = (lat2 - lat1) * Math.PI / 180;
+  var dLng = (lng2 - lng1) * Math.PI / 180;
+  var a    = Math.sin(dLat/2) * Math.sin(dLat/2)
+           + Math.cos(lat1 * Math.PI/180) * Math.cos(lat2 * Math.PI/180)
+           * Math.sin(dLng/2) * Math.sin(dLng/2);
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+// ── Map init ──────────────────────────────────────────────────────────────────
+setLoader(5, 'Initialising map…');
+var map = L.map('map',{center:[-27.5,134.0],zoom:4,zoomControl:true,preferCanvas:true,maxZoom:12});
+L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{
+  attribution:'&copy; <a href="https://openstreetmap.org">OpenStreetMap</a> &copy; <a href="https://carto.com">CARTO</a>',
+  subdomains:'abcd', maxZoom:12
+}).addTo(map);
+
+var markerLayer = L.layerGroup().addTo(map);
+var radiusRing = null; // dashed circle drawn on sidebar open
+
+// ── Colour / radius helpers ───────────────────────────────────────────────────
+function gc(n){ return n>=15?'#7a0000':n>=10?'#a01020':n>=5?'#BE1E2D':n>=3?'#d94050':'#fca5ad'; }
+function gr(n){ return Math.max(7, Math.sqrt(n) * 5.5); }
+function go(n){ return n>=10 ? 0.88 : n>=5 ? 0.80 : 0.70; }
+
+// ── Master data store ─────────────────────────────────────────────────────────
+var ALL_DATA = [];
+var sidebar  = document.getElementById('sidebar');
+
+function clearRadiusRing(){
+  if(radiusRing){ map.removeLayer(radiusRing); radiusRing = null; }
+}
+function drawRadiusRing(lat, lng){
+  clearRadiusRing();
+  radiusRing = L.circle([lat, lng], {
+    radius: SEARCH_RADIUS_KM * 1000,
+    color: '#BE1E2D',
+    weight: 1.5,
+    opacity: 0.5,
+    fill: false,
+    dashArray: '5, 6',
+    interactive: false
+  }).addTo(map);
+}
+
+// ── Open sidebar with prepared list of cases ─────────────────────────────────
+function openSidebar(filteredCases, pc, city, state, areaLabel){
+  document.getElementById('sb-pc').textContent  = pc;
+  document.getElementById('sb-sub').textContent = city + (state ? ', ' + state : '');
+  document.getElementById('sb-n').textContent   = filteredCases.length;
+  document.getElementById('sb-label').textContent = areaLabel || 'Applications from this community';
+
+  var el = document.getElementById('sb-cases');
+  if(!filteredCases.length){
+    el.innerHTML = '<div class="no-cases">No cases in this time period.</div>';
+  } else {
+    el.innerHTML = filteredCases.map(function(c){
+      var tagsHtml = (c.tags || []).map(function(t){
+        return '<span class="tag">' + esc(t) + '</span>';
+      }).join('');
+      return '<div class="ccard">'
+        + '<div class="ccard-summary">' + esc(c.summary) + '</div>'
+        + (tagsHtml ? '<div class="tags">' + tagsHtml + '</div>' : '')
+        + (c.dateLabel ? '<div class="ccard-date">&#128197; ' + c.dateLabel + '</div>' : '')
+        + '</div>';
+    }).join('');
+  }
+  sidebar.classList.add('open');
+  document.getElementById('hint').classList.add('gone');
+}
+
+// ── Render markers for a given cutoff date (null = all) ───────────────────────
+function renderMarkers(cutoffMs){
+  markerLayer.clearLayers();
+  var totalVisible = 0;
+
+  ALL_DATA.forEach(function(d){
+    var cases = cutoffMs
+      ? d.cases.filter(function(c){ return c.dateMs && c.dateMs >= cutoffMs; })
+      : d.cases;
+
+    if(!cases.length) return;
+    totalVisible += cases.length;
+
+    var n = cases.length;
+    var c = L.circleMarker([d.lat, d.lng], {
+      radius      : gr(n),
+      fillColor   : gc(n),
+      color       : n >= 10 ? 'rgba(90,0,0,0.4)' : 'rgba(190,30,45,0.3)',
+      weight      : 1.5,
+      opacity     : 1,
+      fillOpacity : go(n)
+    });
+
+    c.bindTooltip(
+      '<strong>' + d.pc + '</strong> &mdash; ' + d.city + ', ' + d.state +
+      '<br/><span style="color:#BE1E2D;font-weight:700;">' + n +
+      ' application' + (n !== 1 ? 's' : '') + '</span>',
+      {direction:'top', offset:[0,-8]}
+    );
+
+    c.on('click', (function(captured_d){
+      return function(e){
+        L.DomEvent.stopPropagation(e);
+        // Click behaviour: aggregate within radius (matches search behaviour)
+        openWithRadius(captured_d.lat, captured_d.lng, captured_d.pc, captured_d.city, captured_d.state);
+      };
+    })(d));
+
+    markerLayer.addLayer(c);
+  });
+
+  // Update header counter
+  var counter = document.getElementById('case-counter');
+  if(counter){
+    document.getElementById('counter-num').textContent = totalVisible;
+    var weeks = parseInt(slider.value);
+    document.getElementById('counter-lbl').textContent =
+      weeks < MAX_WEEKS ? 'Cases (last ' + weeks + (weeks === 1 ? ' wk)' : ' wks)') : 'Total Cases';
+    counter.style.display = 'block';
+  }
+  // Mobile pill sync
+  var pn = document.getElementById('mob-pill-num');
+  var pl = document.getElementById('mob-pill-lbl');
+  if(pn){
+    pn.textContent = totalVisible;
+    var _w = parseInt(slider.value);
+    pl.textContent = _w < MAX_WEEKS ? 'last ' + _w + ' wks' : 'all cases';
+  }
+}
+
+// Aggregate cases within SEARCH_RADIUS_KM of a clicked/selected point and open sidebar
+function openWithRadius(lat, lng, pc, city, state){
+  var weeks    = parseInt(slider.value);
+  var cutoffMs = weeks < MAX_WEEKS ? Date.now() - weeks * 7 * 24 * 60 * 60 * 1000 : null;
+
+  var nearby = ALL_DATA.filter(function(d){
+    return haversine(lat, lng, d.lat, d.lng) <= SEARCH_RADIUS_KM;
+  });
+
+  var allCases = [];
+  nearby.forEach(function(d){
+    var filtered = cutoffMs
+      ? d.cases.filter(function(c){ return c.dateMs && c.dateMs >= cutoffMs; })
+      : d.cases;
+    allCases = allCases.concat(filtered);
+  });
+
+  var isRadius  = nearby.length > 1;
+  var subtitle  = isRadius ? city + ' & surrounding suburbs' : city;
+  var areaLabel = isRadius
+    ? 'Applications within ' + SEARCH_RADIUS_KM + ' km'
+    : 'Applications from this community';
+
+  // Sort newest first
+  allCases.sort(function(a, b){ return (b.dateMs || 0) - (a.dateMs || 0); });
+
+  if(isRadius) drawRadiusRing(lat, lng);
+  else clearRadiusRing();
+
+  openSidebar(allCases, pc, subtitle, state, areaLabel);
+}
+
+// ── Slider logic ──────────────────────────────────────────────────────────────
+var slider     = document.getElementById('week-slider');
+var sliderPill = document.getElementById('slider-pill');
+
+function updateSlider(){
+  var weeks = parseInt(slider.value);
+  var pct   = ((weeks - 1) / (MAX_WEEKS - 1) * 100).toFixed(1);
+  slider.style.setProperty('--pct', pct + '%');
+
+  var cutoffMs = null;
+  if(weeks < MAX_WEEKS){
+    cutoffMs = Date.now() - weeks * 7 * 24 * 60 * 60 * 1000;
+    sliderPill.textContent = 'Last ' + weeks + (weeks === 1 ? ' week' : ' weeks');
+  } else {
+    sliderPill.textContent = 'All data';
+  }
+  renderMarkers(cutoffMs);
+}
+slider.addEventListener('input', updateSlider);
+
+// ── Process the heatmap.json payload into ALL_DATA ────────────────────────────
+function processData(payload){
+  try {
+    setLoader(70, 'Processing case data…');
+
+    var postcodes = (payload && payload.postcodes) || [];
+    ALL_DATA = postcodes.map(function(p){
+      var cases = (p.cases || []).map(function(c){
+        var pd = parseCaseDate(c.d);
+        return {
+          summary   : String(c.summary || 'No details available'),
+          tags      : Array.isArray(c.tags) ? c.tags : [],
+          status    : String(c.status || ''),
+          dateMs    : pd ? pd.ms : null,
+          dateLabel : pd ? pd.label : null
+        };
+      });
+      return {
+        pc    : String(p.pc),
+        city  : String(p.city || ''),
+        state : String(p.state || ''),
+        lat   : parseFloat(p.lat),
+        lng   : parseFloat(p.lng),
+        cases : cases
+      };
+    }).filter(function(d){
+      return !isNaN(d.lat) && !isNaN(d.lng) && d.cases.length > 0;
+    });
+
+    setLoader(90, 'Rendering map…');
+
+    // Set header subtitle to current month/year (matches original behaviour)
+    var now = new Date();
+    document.getElementById('hdr-sub').innerHTML =
+      'National Zakat Foundation Australia &nbsp;&middot;&nbsp; ' +
+      now.toLocaleString('default',{month:'long'}) + ' ' + now.getFullYear();
+
+    // Initial render
+    updateSlider();
+
+    // Sidebar close handlers
+    document.getElementById('sb-close-btn').addEventListener('click', function(e){
+      e.stopPropagation();
+      sidebar.classList.remove('open');
+      clearRadiusRing();
+    });
+    map.on('click', function(){
+      sidebar.classList.remove('open');
+      clearRadiusRing();
+    });
+    setTimeout(function(){ document.getElementById('hint').classList.add('gone'); }, 5000);
+
+    // ── Search ───────────────────────────────────────────────────────────────
+    var searchInput    = document.getElementById('search-input');
+    var searchDropdown = document.getElementById('search-dropdown');
+    var searchClear    = document.getElementById('search-clear');
+    var searchIcon     = document.getElementById('search-icon');
+    var activeIdx      = -1;
+    var currentResults = [];
+
+    function getFilteredData(){
+      var weeks = parseInt(slider.value);
+      if(weeks >= MAX_WEEKS) return ALL_DATA;
+      var cutoffMs = Date.now() - weeks * 7 * 24 * 60 * 60 * 1000;
+      return ALL_DATA.filter(function(d){
+        return d.cases.some(function(c){ return c.dateMs && c.dateMs >= cutoffMs; });
+      });
+    }
+
+    function filterResults(q){
+      if(!q || q.length < 2) return [];
+      q = q.toLowerCase().trim();
+      return getFilteredData().filter(function(d){
+        return d.pc.indexOf(q) === 0 || d.city.toLowerCase().indexOf(q) !== -1;
+      }).slice(0, 8);
+    }
+
+    function renderDropdown(results){
+      if(!results.length){
+        searchDropdown.innerHTML = '<div class="search-no-results">No postcodes found</div>';
+      } else {
+        searchDropdown.innerHTML = results.map(function(r, i){
+          var weeks    = parseInt(slider.value);
+          var cutoffMs = weeks < MAX_WEEKS ? Date.now() - weeks * 7 * 24 * 60 * 60 * 1000 : null;
+          var n = cutoffMs
+            ? r.cases.filter(function(c){ return c.dateMs && c.dateMs >= cutoffMs; }).length
+            : r.cases.length;
+          return '<div class="search-item' + (i === activeIdx ? ' active' : '') + '" data-idx="' + i + '">'
+            + '<span class="search-item-pc">'  + esc(r.pc)   + '</span>'
+            + '<span class="search-item-sub">' + esc(r.city) + ', ' + esc(r.state) + '</span>'
+            + '<span class="search-item-n">'   + n + ' case' + (n !== 1 ? 's' : '') + '</span>'
+            + '</div>';
+        }).join('');
+      }
+      searchDropdown.style.display = 'block';
+    }
+
+    searchInput.addEventListener('input', function(){
+      var q = this.value;
+      searchClear.style.display = q ? 'block' : 'none';
+      searchIcon.style.display  = q ? 'none'  : 'block';
+      activeIdx = -1;
+      currentResults = filterResults(q);
+      if(!q){ searchDropdown.style.display = 'none'; return; }
+      renderDropdown(currentResults);
+    });
+
+    searchInput.addEventListener('keydown', function(e){
+      if(e.key === 'ArrowDown'){
+        e.preventDefault(); activeIdx = Math.min(activeIdx + 1, currentResults.length - 1);
+        renderDropdown(currentResults);
+      } else if(e.key === 'ArrowUp'){
+        e.preventDefault(); activeIdx = Math.max(activeIdx - 1, -1);
+        renderDropdown(currentResults);
+      } else if(e.key === 'Enter'){
+        e.preventDefault();
+        var idx = activeIdx >= 0 ? activeIdx : 0;
+        if(currentResults[idx]) selectResult(currentResults[idx]);
+      } else if(e.key === 'Escape'){
+        searchDropdown.style.display = 'none'; searchInput.blur();
+      }
+    });
+
+    searchDropdown.addEventListener('click', function(e){
+      var item = e.target.closest('.search-item');
+      if(!item) return;
+      var idx = parseInt(item.getAttribute('data-idx'));
+      if(currentResults[idx]) selectResult(currentResults[idx]);
+    });
+
+    searchClear.addEventListener('click', function(){
+      searchInput.value = '';
+      searchClear.style.display = 'none'; searchIcon.style.display = 'block';
+      searchDropdown.style.display = 'none';
+      currentResults = []; activeIdx = -1; searchInput.focus();
+    });
+
+    document.addEventListener('click', function(e){
+      if(!document.getElementById('search-wrap').contains(e.target)){
+        searchDropdown.style.display = 'none';
+      }
+    });
+
+    function selectResult(r){
+      searchInput.value = r.pc + ' — ' + r.city;
+      searchClear.style.display = 'block'; searchIcon.style.display = 'none';
+      searchDropdown.style.display = 'none'; currentResults = [];
+      map.flyTo([r.lat, r.lng], 11, {duration: 1.2});
+      setTimeout(function(){
+        openWithRadius(r.lat, r.lng, r.pc, r.city, r.state);
+      }, 700);
+    }
+
+    // ── Hide loader ──────────────────────────────────────────────────────────
+    setLoader(100, 'Ready');
+    setTimeout(function(){
+      var overlay = document.getElementById('loading-overlay');
+      overlay.classList.add('fade-out');
+      setTimeout(function(){ overlay.style.display = 'none'; }, 500);
+    }, 400);
+
+  } catch(err){
+    console.error('Processing error:', err);
+    showError(err.message || String(err));
+  }
+}
+
+// ── Format the last-updated timestamp from meta.json ──────────────────────────
+function applyMeta(meta){
+  if(!meta || !meta.generated_at) return;
+  try {
+    var dt = new Date(meta.generated_at);
+    if(isNaN(dt)) return;
+    var formatted = dt.toLocaleString('en-AU', {
+      day:'numeric', month:'short', year:'numeric',
+      hour:'numeric', minute:'2-digit', hour12:true,
+      timeZone:'Australia/Sydney'
+    });
+    document.getElementById('last-updated').textContent = 'Last updated: ' + formatted + ' AEST';
+  } catch(e){ /* non-fatal */ }
+}
+
+// ── Fetch ────────────────────────────────────────────────────────────────────
+setLoader(20, 'Fetching latest data…');
+
+// Cache-bust at the URL level (Netlify also serves with 5-min cache, but a query string ensures freshness on hard refresh)
+var bust = '?t=' + Date.now();
+
+Promise.all([
+  fetch(DATA_URL + bust).then(function(r){
+    if(!r.ok) throw new Error('HTTP ' + r.status + ' loading heatmap data');
+    return r.json();
+  }),
+  fetch(META_URL + bust).then(function(r){
+    if(!r.ok) return null;        // meta is non-essential
+    return r.json();
+  }).catch(function(){ return null; })
+])
+.then(function(results){
+  applyMeta(results[1]);
+  setLoader(50, 'Loaded ' + ((results[0].postcodes || []).length) + ' postcodes…');
+  processData(results[0]);
+})
+.catch(function(err){
+  console.error('Fetch error:', err);
+  showError(err && err.message ? err.message : String(err));
+});
+
+// Initial slider track fill on page load
+(function(){
+  var s = document.getElementById('week-slider');
+  var pct = ((parseInt(s.value) - 1) / (52 - 1) * 100).toFixed(1);
+  s.style.setProperty('--pct', pct + '%');
+})();
+
+})();
+</script>
 </body>
 </html>
