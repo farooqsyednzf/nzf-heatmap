@@ -1,1 +1,80 @@
+name: Refresh heatmap data
 
+on:
+  schedule:
+    # 17:00 UTC daily = 03:00 AEST (UTC+10) / 04:00 AEDT (UTC+11)
+    - cron: '0 17 * * *'
+  workflow_dispatch:
+    inputs:
+      strict_pii:
+        description: 'Fail run if any PII patterns are detected in summaries'
+        required: false
+        default: 'false'
+        type: choice
+        options: ['false', 'true']
+
+# Required so the bot can commit refreshed JSON back to the repo
+permissions:
+  contents: write
+
+# Prevent two refreshes from racing each other if a manual run overlaps the cron
+concurrency:
+  group: refresh-data
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    # 90 mins accommodates the one-off first-run backfill (~2,500 LLM calls).
+    # Daily incremental runs typically finish in 1–2 minutes.
+    timeout-minutes: 90
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run pipeline
+        env:
+          ZOHO_DC:            'com'
+          ZOHO_CLIENT_ID:     ${{ secrets.ZOHO_CLIENT_ID }}
+          ZOHO_CLIENT_SECRET: ${{ secrets.ZOHO_CLIENT_SECRET }}
+          ZOHO_REFRESH_TOKEN: ${{ secrets.ZOHO_REFRESH_TOKEN }}
+          ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
+          STRICT_PII: ${{ github.event.inputs.strict_pii == 'true' && '1' || '0' }}
+        run: python -m scripts.main
+
+      - name: Commit if data changed
+        run: |
+          git config user.name  "nzf-heatmap-bot"
+          git config user.email "bot@nzf.org.au"
+          git add private/master.json public/data/heatmap.json public/data/meta.json
+          if git diff --staged --quiet; then
+            echo "No data changes — skipping commit."
+          else
+            git commit -m "data: daily refresh $(date -u +%Y-%m-%d)"
+            git push
+          fi
+
+      - name: Notify Slack on failure
+        if: failure()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          if [ -n "$SLACK_WEBHOOK_URL" ]; then
+            curl -sS -X POST -H 'Content-type: application/json' \
+              --data "{\"text\":\"❌ NZF heatmap refresh failed. https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}" \
+              "$SLACK_WEBHOOK_URL"
+          else
+            echo "No Slack webhook configured."
+          fi
