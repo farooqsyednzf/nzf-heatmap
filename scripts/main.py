@@ -15,7 +15,7 @@ Steps:
 import json
 import os
 import sys
-from collections import defaultdict
+from collections import Counter, defaultdict
 from datetime import datetime, timezone
 
 from . import config, geocode, reconcile, summarize, transform, validate, zoho_export
@@ -55,7 +55,7 @@ def run() -> int:
     extract_by_id = {r["case_id"]: r for r in rows}
     new_master: dict = {}
 
-    # ── 5. Carry over existing cases (preserve summary/tags/etc.) ─────────────
+    # ── 5. Carry over existing cases (preserve summary/tags/etc.) ────────────
     for cid, existing in master.items():
         if cid in removed_ids:
             continue
@@ -102,7 +102,7 @@ def run() -> int:
     print(f"[master] saved {len(new_master)} cases → {config.MASTER_PATH}")
     _hr()
 
-    # ── 8. Build & validate public payload ────────────────────────────────────
+    # ── 8. Build & validate public payload ───────────────────────────────────
     public = build_public_payload(new_master)
     validate.validate_public_payload(public)
 
@@ -124,6 +124,48 @@ def run() -> int:
     return 0
 
 
+def _pick_city(cases: list, geo: dict) -> str:
+    """Pick the suburb name to display for a postcode that may cover multiple
+    suburbs. Strategy:
+      1. Build the canonical list of valid suburbs for this postcode (from pgeocode).
+      2. Among the cases, find which Zoho-supplied suburbs match a valid one.
+      3. Return the most common valid match. If tied, the alphabetically first wins.
+      4. If no case has a valid Zoho-supplied suburb (e.g. all blank, or all wrong
+         like Meadow Heights for 3046), fall back to the first canonical suburb
+         from pgeocode for that postcode.
+    """
+    valid_list = geo.get("suburbs") or []
+    valid_lookup = {s.casefold(): s for s in valid_list}  # for case-insensitive match
+
+    counts: Counter = Counter()
+    for c in cases:
+        s = (c.get("suburb") or "").strip()
+        if not s:
+            continue
+        # Match case-insensitively but preserve canonical casing
+        canonical = valid_lookup.get(s.casefold())
+        if canonical:
+            counts[canonical] += 1
+
+    if counts:
+        # most_common returns by count desc, then insertion order — make tie-break
+        # deterministic by sorting alphabetically among equally-counted suburbs
+        max_count = max(counts.values())
+        winners = sorted([s for s, n in counts.items() if n == max_count])
+        return winners[0]
+
+    # No valid case-supplied suburb. Use pgeocode's first canonical name.
+    if valid_list:
+        return valid_list[0]
+    # Last resort — joined string from pgeocode
+    return geo.get("suburb", "")
+
+
+def _pick_state(cases: list, geo: dict) -> str:
+    """States are 1:1 with postcodes in AU, so just trust pgeocode."""
+    return geo.get("state", "") or (cases[0].get("state", "") if cases else "")
+
+
 def build_public_payload(master: dict) -> dict:
     """Aggregate master state by postcode, attach lat/lng, strip CaseID/Stage."""
     by_pc: dict = defaultdict(list)
@@ -139,11 +181,12 @@ def build_public_payload(master: dict) -> dict:
         if not geo:
             skipped_no_geo += 1
             continue
-        first = cases[0]
+        city  = _pick_city(cases, geo)
+        state = _pick_state(cases, geo)
         postcodes.append({
             "pc":    pc,
-            "city":  first.get("suburb") or geo["suburb"],
-            "state": first.get("state")  or geo["state"],
+            "city":  city,
+            "state": state,
             "lat":   geo["lat"],
             "lng":   geo["lng"],
             "cases": [
