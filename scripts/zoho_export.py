@@ -44,8 +44,24 @@ def _headers(access_token: str) -> Dict[str, str]:
 
 
 # ── Bulk export ───────────────────────────────────────────────────────────────
+def _raise_with_body(r: requests.Response, context: str) -> None:
+    """Like raise_for_status(), but prints Zoho's error body so we can see WHY."""
+    if r.ok:
+        return
+    print(f"[zoho] HTTP {r.status_code} from {context}")
+    try:
+        print(f"[zoho] response: {r.json()}")
+    except Exception:
+        print(f"[zoho] response (raw): {r.text[:500]}")
+    r.raise_for_status()
+
+
 def create_export_job(access_token: str) -> str:
-    """Submit SQL export job. Returns jobId."""
+    """Submit SQL export job. Returns jobId.
+
+    Note: Zoho uses GET for this despite it being a write op, and CONFIG
+    goes in the URL query string (not form-encoded body).
+    """
     url = (
         f"{config.ZOHO_ANALYTICS_URL}/restapi/v2/bulk/workspaces/"
         f"{config.ZOHO_WORKSPACE_ID}/data"
@@ -54,13 +70,13 @@ def create_export_job(access_token: str) -> str:
         "responseFormat": "csv",
         "sqlQuery":       f'SELECT * FROM "{config.ZOHO_VIEW_NAME}"',
     })
-    r = requests.post(
+    r = requests.get(
         url,
         headers=_headers(access_token),
-        data={"CONFIG": cfg},
+        params={"CONFIG": cfg},
         timeout=60,
     )
-    r.raise_for_status()
+    _raise_with_body(r, "create_export_job")
     body = r.json()
     job_id = (body.get("data") or {}).get("jobId")
     if not job_id:
@@ -95,7 +111,7 @@ def poll_export_job(access_token: str, job_id: str) -> None:
     )
     for _ in range(config.EXPORT_POLL_MAX_TRIES):
         r = requests.get(url, headers=_headers(access_token), timeout=30)
-        r.raise_for_status()
+        _raise_with_body(r, "poll_export_job")
         data = (r.json() or {}).get("data") or {}
         state = _job_state(data)
         if state == "complete":
@@ -117,7 +133,7 @@ def download_export(access_token: str, job_id: str) -> str:
         f"{config.ZOHO_WORKSPACE_ID}/exportjobs/{job_id}/data"
     )
     r = requests.get(url, headers=_headers(access_token), timeout=180)
-    r.raise_for_status()
+    _raise_with_body(r, "download_export")
     return r.text
 
 
