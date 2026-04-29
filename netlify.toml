@@ -1,0 +1,23 @@
+# Netlify configuration for nzf-heatmap
+# - Only files in /public are published (everything else stays private to git)
+# - CSP allows iframe embedding from nzf.org.au only
+# - /data/* files have short cache so the daily refresh is visible quickly
+
+[build]
+  publish = "public"
+
+# Default headers for all paths
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "frame-ancestors 'self' https://nzf.org.au https://www.nzf.org.au;"
+    Referrer-Policy         = "strict-origin-when-cross-origin"
+    X-Content-Type-Options  = "nosniff"
+    Permissions-Policy      = "geolocation=(), microphone=(), camera=()"
+
+# Data files: short cache, public CORS so the embedded iframe can fetch
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control               = "public, max-age=300, must-revalidate"
+    Access-Control-Allow-Origin = "*"
