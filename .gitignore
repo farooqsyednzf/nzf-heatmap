@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.env
+.env.local
+.venv/
+venv/
+*.swp
+.DS_Store
+.idea/
+.vscode/
+*.tmp
+node_modules/
+.netlify/
