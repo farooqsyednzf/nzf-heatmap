@@ -1,65 +1,5 @@
 {
   "cases": {
-    "981539000233524044": {
-      "case_date": "29 Apr, 2025 00:00:00",
-      "case_id": "981539000233524044",
-      "postcode": "3028",
-      "stage": "Closed - NO Response",
-      "state": "VIC",
-      "status": "Closed - Not Assisted",
-      "suburb": "ALTONA MEADOWS",
-      "summary": "Applicant requesting rent and food assistance, risking homelessness and inability to meet basic nutritional needs.",
-      "tags": [
-        "rent assistance",
-        "food/groceries"
-      ],
-      "type": "Application"
-    },
-    "981539000233528001": {
-      "case_date": "29 Apr, 2025 00:00:00",
-      "case_id": "981539000233528001",
-      "postcode": "3023",
-      "stage": "Closed - Funded",
-      "state": "VIC",
-      "status": "Successfully Assisted",
-      "suburb": "DEER PARK",
-      "summary": "Applicant facing financial hardship requesting assistance with rent, groceries, and phone bills, risking inability to meet basic living needs.",
-      "tags": [
-        "rent assistance",
-        "food/groceries"
-      ],
-      "type": "Application"
-    },
-    "981539000233528043": {
-      "case_date": "29 Apr, 2025 00:00:00",
-      "case_id": "981539000233528043",
-      "postcode": "2179",
-      "stage": "Closed - Funded",
-      "state": "NSW",
-      "status": "Successfully Assisted",
-      "suburb": "AUSTRAL",
-      "summary": "Single mother requesting assistance with groceries and daily expenses, unable to adequately provide for her four children without support.",
-      "tags": [
-        "food/groceries",
-        "single parent"
-      ],
-      "type": "Application"
-    },
-    "981539000233528504": {
-      "case_date": "29 Apr, 2025 00:00:00",
-      "case_id": "981539000233528504",
-      "postcode": "3047",
-      "stage": "Closed - Funded",
-      "state": "VIC",
-      "status": "Successfully Assisted",
-      "suburb": "LALOR",
-      "summary": "Refugee family recently arrived seeking urgent assistance with medical bills and rent, risking inability to maintain stable housing and access necessary healthcare.",
-      "tags": [
-        "rent assistance",
-        "medical"
-      ],
-      "type": "Application"
-    },
     "981539000233535042": {
       "case_date": "30 Apr, 2025 00:00:00",
       "case_id": "981539000233535042",
@@ -130,35 +70,6 @@
       ],
       "type": "Application"
     },
-    "981539000233615015": {
-      "case_date": "29 Apr, 2025 00:00:00",
-      "case_id": "981539000233615015",
-      "postcode": "3024",
-      "stage": "Closed - Not Funded",
-      "state": "VIC",
-      "status": "Closed - Not Assisted",
-      "suburb": "MANOR LAKES",
-      "summary": "Single mother requiring urgent vehicle repairs, risking inability to transport her children with additional needs to essential appointments and activities.",
-      "tags": [
-        "fuel/transport",
-        "emergency relief"
-      ],
-      "type": "Application"
-    },
-    "981539000233623001": {
-      "case_date": "29 Apr, 2025 00:00:00",
-      "case_id": "981539000233623001",
-      "postcode": "3589",
-      "stage": "Closed - NO Response",
-      "state": "VIC",
-      "status": "Closed - Not Assisted",
-      "suburb": "Woorinen",
-      "summary": "Applicant unable to work due to a workplace injury, requiring rental and living cost assistance to avoid homelessness and inability to meet basic needs.",
-      "tags": [
-        "rent assistance"
-      ],
-      "type": "Application"
-    },
     "981539000233641008": {
       "case_date": "30 Apr, 2025 00:00:00",
       "case_id": "981539000233641008",
@@ -170,21 +81,6 @@
       "summary": "Refugee family newly arrived from a conflict zone requiring emergency support, risking inability to meet basic needs.",
       "tags": [
         "refugee/migrant"
-      ],
-      "type": "Application"
-    },
-    "981539000233669003": {
-      "case_date": "29 Apr, 2025 00:00:00",
-      "case_id": "981539000233669003",
-      "postcode": "4100",
-      "stage": "Closed - Funded",
-      "state": "QLD",
-      "status": "Successfully Assisted",
-      "suburb": "Brisbane",
-      "summary": "Refugee family navigating urgent unspecified needs, requiring emergency support during a critical and vulnerable period.",
-      "tags": [
-        "medical",
-        "emergency relief"
       ],
       "type": "Application"
     },
@@ -36973,6 +36869,6 @@
       "type": "Application"
     }
   },
-  "last_updated": "2026-04-29T23:08:35.505256+00:00",
+  "last_updated": "2026-04-30T02:08:31.147870+00:00",
   "version": 1
 }
