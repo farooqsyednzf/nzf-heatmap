@@ -2,10 +2,10 @@ name: Refresh heatmap data
 
 on:
   schedule:
-    # ── TEST SLOT ──
-    # 07:15 UTC = 17:15 AEST (5:15pm) today. Once we confirm scheduled runs
-    # work, we'll switch to production schedule (8 AM AEST = 22:00 UTC).
-    - cron: '15 7 * * *'
+    - cron: '0 22 * * *'   # 8 AM AEST (UTC+10)
+    - cron: '0 2 * * *'    # 12 PM AEST
+    - cron: '0 6 * * *'    # 4 PM AEST
+    - cron: '0 11 * * *'   # 9 PM AEST
   workflow_dispatch:
     inputs:
       strict_pii:
