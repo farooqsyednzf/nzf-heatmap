@@ -3,9 +3,9 @@ name: Refresh heatmap data
 on:
   schedule:
     # ── TEST SLOT ──
-    # 00:00 UTC = 10:00 AEST (UTC+10) / 11:00 AEDT (UTC+11)
-    # Set for one-shot test; revert to 8am production schedule afterwards.
-    - cron: '0 0 * * *'
+    # 02:30 UTC = 12:30 PM AEST today. Once we confirm scheduled runs
+    # work, we'll switch to production schedule (8 AM AEST = 22:00 UTC).
+    - cron: '30 2 * * *'
   workflow_dispatch:
     inputs:
       strict_pii:
@@ -15,22 +15,15 @@ on:
         type: choice
         options: ['false', 'true']
 
-# Required so the bot can commit refreshed JSON back to the repo
-permissions:
-  contents: write
-
-# Prevent two refreshes from racing each other if a manual run overlaps the cron
-concurrency:
-  group: refresh-data
-  cancel-in-progress: false
-
 jobs:
   refresh:
     runs-on: ubuntu-latest
     timeout-minutes: 90
+    permissions:
+      contents: write
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Set up Python
@@ -54,17 +47,13 @@ jobs:
           STRICT_PII: ${{ github.event.inputs.strict_pii == 'true' && '1' || '0' }}
         run: python -m scripts.main
 
-      - name: Commit if data changed
+      - name: Commit updated data files
         run: |
-          git config user.name  "nzf-heatmap-bot"
-          git config user.email "bot@nzf.org.au"
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add private/master.json public/data/heatmap.json public/data/meta.json
-          if git diff --staged --quiet; then
-            echo "No data changes — skipping commit."
-          else
-            git commit -m "data: daily refresh $(date -u +%Y-%m-%d)"
-            git push
-          fi
+          git diff --staged --quiet || git commit -m "data: refresh [$(date -u '+%Y-%m-%d %H:%M UTC')]"
+          git push
 
       - name: Notify Slack on failure
         if: failure()
@@ -75,6 +64,4 @@ jobs:
             curl -sS -X POST -H 'Content-type: application/json' \
               --data "{\"text\":\"❌ NZF heatmap refresh failed. https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}" \
               "$SLACK_WEBHOOK_URL"
-          else
-            echo "No Slack webhook configured."
           fi
