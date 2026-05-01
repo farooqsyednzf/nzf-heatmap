@@ -1,103 +1,5 @@
 {
   "cases": {
-    "981539000233535042": {
-      "case_date": "30 Apr, 2025 00:00:00",
-      "case_id": "981539000233535042",
-      "postcode": "2200",
-      "stage": "Closed - Funded",
-      "state": "NSW",
-      "status": "Successfully Assisted",
-      "suburb": "CONDELL PARK",
-      "summary": "Applicant seeking rent and bond assistance, risking homelessness without support.",
-      "tags": [
-        "rent assistance"
-      ],
-      "type": "Application"
-    },
-    "981539000233567018": {
-      "case_date": "30 Apr, 2025 00:00:00",
-      "case_id": "981539000233567018",
-      "postcode": "3064",
-      "stage": "Closed - NO Response",
-      "state": "VIC",
-      "status": "Closed - Not Assisted",
-      "suburb": "WYNDEHAM",
-      "summary": "Applicant recently arrived requiring support as a new migrant, risking inability to meet basic needs without assistance.",
-      "tags": [
-        "refugee/migrant"
-      ],
-      "type": "Application"
-    },
-    "981539000233599036": {
-      "case_date": "30 Apr, 2025 00:00:00",
-      "case_id": "981539000233599036",
-      "postcode": "2170",
-      "stage": "Closed - NO Response",
-      "state": "NSW",
-      "status": "Closed - Not Assisted",
-      "suburb": "Casula",
-      "summary": "Mother seeking assistance with children's religious education fees while husband remains unemployed, risking the children losing their place in the program.",
-      "tags": [
-        "family hardship"
-      ],
-      "type": "Application"
-    },
-    "981539000233612006": {
-      "case_date": "30 Apr, 2025 00:00:00",
-      "case_id": "981539000233612006",
-      "postcode": "2164",
-      "stage": "Closed - Not Funded",
-      "state": "NSW",
-      "status": "Closed - Not Assisted",
-      "suburb": "Smithfield",
-      "summary": "Applicant requesting assistance with religious school fees, risking disruption to their child's education without support.",
-      "tags": [
-        "school fees"
-      ],
-      "type": "Application"
-    },
-    "981539000233614117": {
-      "case_date": "30 Apr, 2025 00:00:00",
-      "case_id": "981539000233614117",
-      "postcode": "2170",
-      "stage": "Closed - Not Funded",
-      "state": "NSW",
-      "status": "Closed - Not Assisted",
-      "suburb": "LIVERPOOL",
-      "summary": "Applicant requesting assistance with children's educational course fees, risking disruption to their children's learning if unable to pay.",
-      "tags": [
-        "family hardship"
-      ],
-      "type": "Application"
-    },
-    "981539000233641008": {
-      "case_date": "30 Apr, 2025 00:00:00",
-      "case_id": "981539000233641008",
-      "postcode": "2179",
-      "stage": "Closed - Funded",
-      "state": "NSW",
-      "status": "Successfully Assisted",
-      "suburb": "Austral",
-      "summary": "Refugee family newly arrived from a conflict zone requiring emergency support, risking inability to meet basic needs.",
-      "tags": [
-        "refugee/migrant"
-      ],
-      "type": "Application"
-    },
-    "981539000233688767": {
-      "case_date": "30 Apr, 2025 00:00:00",
-      "case_id": "981539000233688767",
-      "postcode": "2170",
-      "stage": "Closed - Funded",
-      "state": "NSW",
-      "status": "Successfully Assisted",
-      "suburb": "LIVERPOOL",
-      "summary": "Applicant facing financial hardship requesting assistance with transport and utility costs, risking inability to access essential services and maintain basic living conditions.",
-      "tags": [
-        "utilities"
-      ],
-      "type": "Application"
-    },
     "981539000233700027": {
       "case_date": "05 May, 2025 00:00:00",
       "case_id": "981539000233700027",
@@ -37008,6 +36910,6 @@
       "type": "Application"
     }
   },
-  "last_updated": "2026-04-30T16:10:28.572880+00:00",
+  "last_updated": "2026-05-01T07:23:36.702599+00:00",
   "version": 1
 }
