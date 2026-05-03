@@ -14,7 +14,18 @@ _nomi = None
 def _get_nomi():
     global _nomi
     if _nomi is None:
-        _nomi = pgeocode.Nominatim("AU")
+        import time
+        last_err = None
+        for attempt in range(3):
+            try:
+                _nomi = pgeocode.Nominatim("AU")
+                break
+            except Exception as exc:
+                last_err = exc
+                if attempt < 2:
+                    time.sleep(10 * (attempt + 1))
+        if _nomi is None:
+            raise RuntimeError("pgeocode AU data unavailable after 3 attempts") from last_err
     return _nomi
 
 

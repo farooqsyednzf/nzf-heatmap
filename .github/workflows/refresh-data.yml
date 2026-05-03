@@ -37,6 +37,22 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Cache pgeocode AU data
+        id: pgeocode-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.pgeocode
+          key: pgeocode-au-v1
+
+      - name: Pre-warm pgeocode data (cache miss only)
+        if: steps.pgeocode-cache.outputs.cache-hit != 'true'
+        run: |
+          for i in 1 2 3; do
+            python -c "import pgeocode; pgeocode.Nominatim('AU'); print('pgeocode ready')" && break
+            echo "Attempt $i failed, retrying in 15s..."
+            sleep 15
+          done
+
       - name: Run pipeline
         env:
           ZOHO_DC:            'com'
