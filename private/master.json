@@ -43,20 +43,6 @@
       ],
       "type": "Application"
     },
-    "981539000233763013": {
-      "case_date": "02 May, 2025 00:00:00",
-      "case_id": "981539000233763013",
-      "postcode": "2145",
-      "stage": "Closed - NO Response",
-      "state": "NSW",
-      "status": "Closed - Not Assisted",
-      "suburb": "PENDLE HILL",
-      "summary": "Applicant recently relocated and exhausted their funds on moving costs, now unable to afford food.",
-      "tags": [
-        "food/groceries"
-      ],
-      "type": "Application"
-    },
     "981539000233769042": {
       "case_date": "04 May, 2025 00:00:00",
       "case_id": "981539000233769042",
@@ -85,34 +71,6 @@
       ],
       "type": "Application"
     },
-    "981539000233771016": {
-      "case_date": "02 May, 2025 00:00:00",
-      "case_id": "981539000233771016",
-      "postcode": "2195",
-      "stage": "Closed - Funded",
-      "state": "NSW",
-      "status": "Successfully Assisted",
-      "suburb": "LAKEMBA",
-      "summary": "Applicant seeking asylum requires emergency support, risking inability to meet basic needs without assistance.",
-      "tags": [
-        "refugee/migrant"
-      ],
-      "type": "Application"
-    },
-    "981539000233778043": {
-      "case_date": "02 May, 2025 00:00:00",
-      "case_id": "981539000233778043",
-      "postcode": "3020",
-      "stage": "Closed - Not Funded",
-      "state": "VIC",
-      "status": "Closed - Not Assisted",
-      "suburb": "SUNSHINE NORTH",
-      "summary": "Applicant facing significant debt obligations requesting financial assistance, risking damaged relationships and inability to meet repayments.",
-      "tags": [
-        "debt"
-      ],
-      "type": "Application"
-    },
     "981539000233778073": {
       "case_date": "04 May, 2025 00:00:00",
       "case_id": "981539000233778073",
@@ -127,34 +85,6 @@
       ],
       "type": "Application"
     },
-    "981539000233784025": {
-      "case_date": "02 May, 2025 00:00:00",
-      "case_id": "981539000233784025",
-      "postcode": "2195",
-      "stage": "Closed - Funded",
-      "state": "NSW",
-      "status": "Successfully Assisted",
-      "suburb": "Lakemba",
-      "summary": "Student facing financial hardship requesting assistance with daily living expenses, risking inability to meet basic needs for their family.",
-      "tags": [
-        "family hardship"
-      ],
-      "type": "Application"
-    },
-    "981539000233787026": {
-      "case_date": "02 May, 2025 00:00:00",
-      "case_id": "981539000233787026",
-      "postcode": "2190",
-      "stage": "Closed - NO Response",
-      "state": "NSW",
-      "status": "Closed - Not Assisted",
-      "suburb": "Greenacre",
-      "summary": "Single mother seeking financial support, risking inability to meet basic needs for herself and her children.",
-      "tags": [
-        "single parent"
-      ],
-      "type": "Application"
-    },
     "981539000233795026": {
       "case_date": "04 May, 2025 00:00:00",
       "case_id": "981539000233795026",
@@ -166,20 +96,6 @@
       "summary": "Student facing financial hardship requesting assistance with daily living expenses, risking inability to meet basic needs.",
       "tags": [
         "family hardship"
-      ],
-      "type": "Application"
-    },
-    "981539000233801020": {
-      "case_date": "02 May, 2025 00:00:00",
-      "case_id": "981539000233801020",
-      "postcode": "2122",
-      "stage": "Closed - NO Response",
-      "state": "NSW",
-      "status": "Closed - Not Assisted",
-      "suburb": "reversby heights",
-      "summary": "Single mother seeking support, risking inability to meet essential needs for her family without assistance.",
-      "tags": [
-        "single parent"
       ],
       "type": "Application"
     },
@@ -222,20 +138,6 @@
       "summary": "Refugee family recently displaced by conflict requiring financial assistance, risking inability to meet basic needs.",
       "tags": [
         "family hardship"
-      ],
-      "type": "Application"
-    },
-    "981539000233814027": {
-      "case_date": "02 May, 2025 00:00:00",
-      "case_id": "981539000233814027",
-      "postcode": "6102",
-      "stage": "Closed - NO Response",
-      "state": "WA",
-      "status": "Closed - Not Assisted",
-      "suburb": "St James",
-      "summary": "Applicant seeking rental assistance to secure housing, risking inability to obtain stable accommodation without support.",
-      "tags": [
-        "rent assistance"
       ],
       "type": "Application"
     },
@@ -306,21 +208,6 @@
       "summary": "Applicant seeking assistance with daily living expenses, risking inability to meet basic needs without support.",
       "tags": [
         "family hardship"
-      ],
-      "type": "Application"
-    },
-    "981539000233878230": {
-      "case_date": "02 May, 2025 00:00:00",
-      "case_id": "981539000233878230",
-      "postcode": "",
-      "stage": "Closed - NO Response",
-      "state": "",
-      "status": "Closed - Not Assisted",
-      "suburb": "2100",
-      "summary": "Applicant facing imminent homelessness upon discharge from hospital, risking being left without shelter while recovering from a medical condition.",
-      "tags": [
-        "medical",
-        "housing"
       ],
       "type": "Application"
     },
@@ -36853,6 +36740,20 @@
       ],
       "type": "Application"
     },
+    "981539000278884021": {
+      "case_date": "02 May, 2026 00:00:00",
+      "case_id": "981539000278884021",
+      "postcode": "2541",
+      "stage": "Intake",
+      "state": "NSW",
+      "status": "Pending Review",
+      "suburb": "SOUTH NOWRA",
+      "summary": "Applicant seeking guidance on financial assistance for new Muslims and a low-income family unable to meet basic needs, risking continued hardship without support.",
+      "tags": [
+        "family hardship"
+      ],
+      "type": "Application"
+    },
     "981539000278892001": {
       "case_date": "01 May, 2026 00:00:00",
       "case_id": "981539000278892001",
@@ -36884,6 +36785,22 @@
       ],
       "type": "Application"
     },
+    "981539000278928048": {
+      "case_date": "02 May, 2026 00:00:00",
+      "case_id": "981539000278928048",
+      "postcode": "4124",
+      "stage": "Intake",
+      "state": "QLD",
+      "status": "Pending Review",
+      "suburb": "Boronia Heights",
+      "summary": "Applicant unable to work due to ongoing medical issues requesting assistance with food, bills, and transport costs, risking inability to meet basic needs.",
+      "tags": [
+        "food/groceries",
+        "medical",
+        "fuel/transport"
+      ],
+      "type": "Application"
+    },
     "981539000278932056": {
       "case_date": "01 May, 2026 00:00:00",
       "case_id": "981539000278932056",
@@ -36897,6 +36814,22 @@
         "medical",
         "debt",
         "emergency relief"
+      ],
+      "type": "Application"
+    },
+    "981539000278932068": {
+      "case_date": "02 May, 2026 00:00:00",
+      "case_id": "981539000278932068",
+      "postcode": "3174",
+      "stage": "Intake",
+      "state": "VIC",
+      "status": "Pending Review",
+      "suburb": "Noble Park",
+      "summary": "Applicant facing rental and bond arrears due to loss of income following an anxiety diagnosis, risking homelessness without assistance.",
+      "tags": [
+        "rent assistance",
+        "job loss",
+        "mental health"
       ],
       "type": "Application"
     },
@@ -36957,8 +36890,22 @@
         "disability"
       ],
       "type": "Application"
+    },
+    "981539000279022001": {
+      "case_date": "02 May, 2026 00:00:00",
+      "case_id": "981539000279022001",
+      "postcode": "3020",
+      "stage": "Intake",
+      "state": "VIC",
+      "status": "Pending Review",
+      "suburb": "Albion",
+      "summary": "Single mother seeking emergency relocation assistance to escape an untenable marriage with three children, risking ongoing instability and inability to secure safe housing on a low income.",
+      "tags": [
+        "family hardship"
+      ],
+      "type": "Application"
     }
   },
-  "last_updated": "2026-05-02T14:16:18.376787+00:00",
+  "last_updated": "2026-05-03T00:10:34.552919+00:00",
   "version": 1
 }
