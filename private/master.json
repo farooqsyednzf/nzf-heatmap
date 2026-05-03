@@ -36904,8 +36904,22 @@
         "family hardship"
       ],
       "type": "Application"
+    },
+    "981539000279066001": {
+      "case_date": "03 May, 2026 00:00:00",
+      "case_id": "981539000279066001",
+      "postcode": "3127",
+      "stage": "Intake",
+      "state": "VIC",
+      "status": "Pending Review",
+      "suburb": "Surrey Hills",
+      "summary": "Single father facing unemployment and divorce requesting assistance with marriage costs, risking prolonged hardship and inability to remarry without financial support.",
+      "tags": [
+        "job loss"
+      ],
+      "type": "Application"
     }
   },
-  "last_updated": "2026-05-03T00:10:34.552919+00:00",
+  "last_updated": "2026-05-03T22:56:52.847356+00:00",
   "version": 1
 }
