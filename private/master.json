@@ -57,20 +57,6 @@
       ],
       "type": "Application"
     },
-    "981539000233770029": {
-      "case_date": "03 May, 2025 00:00:00",
-      "case_id": "981539000233770029",
-      "postcode": "5114",
-      "stage": "Closed - NO Response",
-      "state": "SA",
-      "status": "Closed - Not Assisted",
-      "suburb": "DAVOREN PARK",
-      "summary": "Applicant seeking debt assistance, risking inability to meet basic financial obligations without support.",
-      "tags": [
-        "debt"
-      ],
-      "type": "Application"
-    },
     "981539000233778073": {
       "case_date": "04 May, 2025 00:00:00",
       "case_id": "981539000233778073",
@@ -127,20 +113,6 @@
       ],
       "type": "Application"
     },
-    "981539000233811070": {
-      "case_date": "03 May, 2025 00:00:00",
-      "case_id": "981539000233811070",
-      "postcode": "2192",
-      "stage": "Closed - Funded",
-      "state": "NSW",
-      "status": "Successfully Assisted",
-      "suburb": "BELMORE",
-      "summary": "Refugee family recently displaced by conflict requiring financial assistance, risking inability to meet basic needs.",
-      "tags": [
-        "family hardship"
-      ],
-      "type": "Application"
-    },
     "981539000233817119": {
       "case_date": "04 May, 2025 00:00:00",
       "case_id": "981539000233817119",
@@ -180,20 +152,6 @@
       "summary": "Applicant recently arrived requiring migrant support assistance, risking inability to meet basic needs without help.",
       "tags": [
         "refugee/migrant"
-      ],
-      "type": "Application"
-    },
-    "981539000233834064": {
-      "case_date": "03 May, 2025 00:00:00",
-      "case_id": "981539000233834064",
-      "postcode": "2170",
-      "stage": "Closed - Funded",
-      "state": "NSW",
-      "status": "Successfully Assisted",
-      "suburb": "WARWICK FARM",
-      "summary": "Applicant requesting assistance with school fees, risking interrupted education without support.",
-      "tags": [
-        "school fees"
       ],
       "type": "Application"
     },
@@ -36920,6 +36878,6 @@
       "type": "Application"
     }
   },
-  "last_updated": "2026-05-03T22:56:52.847356+00:00",
+  "last_updated": "2026-05-04T05:39:52.080722+00:00",
   "version": 1
 }
