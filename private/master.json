@@ -29,76 +29,6 @@
       ],
       "type": "Application"
     },
-    "981539000233714050": {
-      "case_date": "04 May, 2025 00:00:00",
-      "case_id": "981539000233714050",
-      "postcode": "3174",
-      "stage": "Closed - Funded",
-      "state": "VIC",
-      "status": "Successfully Assisted",
-      "suburb": "NOBLE PARK",
-      "summary": "Applicant seeking asylum requires emergency assistance, risking inability to meet basic needs without support.",
-      "tags": [
-        "refugee/migrant"
-      ],
-      "type": "Application"
-    },
-    "981539000233769042": {
-      "case_date": "04 May, 2025 00:00:00",
-      "case_id": "981539000233769042",
-      "postcode": "3214",
-      "stage": "Closed - Funded",
-      "state": "VIC",
-      "status": "Successfully Assisted",
-      "suburb": "NORLANE",
-      "summary": "Applicant requesting assistance with medical fees for their son, risking inability to access necessary treatment.",
-      "tags": [
-        "medical"
-      ],
-      "type": "Application"
-    },
-    "981539000233778073": {
-      "case_date": "04 May, 2025 00:00:00",
-      "case_id": "981539000233778073",
-      "postcode": "3177",
-      "stage": "Closed - Funded",
-      "state": "VIC",
-      "status": "Successfully Assisted",
-      "suburb": "DOVETON",
-      "summary": "Mother seeking assistance with daily living expenses after her husband's health issues left the household without income, risking inability to meet basic needs.",
-      "tags": [
-        "family hardship"
-      ],
-      "type": "Application"
-    },
-    "981539000233795026": {
-      "case_date": "04 May, 2025 00:00:00",
-      "case_id": "981539000233795026",
-      "postcode": "3029",
-      "stage": "Closed - Funded",
-      "state": "VIC",
-      "status": "Successfully Assisted",
-      "suburb": "Tarneit",
-      "summary": "Student facing financial hardship requesting assistance with daily living expenses, risking inability to meet basic needs.",
-      "tags": [
-        "family hardship"
-      ],
-      "type": "Application"
-    },
-    "981539000233801052": {
-      "case_date": "04 May, 2025 00:00:00",
-      "case_id": "981539000233801052",
-      "postcode": "2163",
-      "stage": "Closed - Funded",
-      "state": "NSW",
-      "status": "Successfully Assisted",
-      "suburb": "VILLAWOOD",
-      "summary": "Applicant recently displaced from family home and couch surfing, unable to afford groceries or bills and at risk of homelessness.",
-      "tags": [
-        "food/groceries"
-      ],
-      "type": "Application"
-    },
     "981539000233809044": {
       "case_date": "05 May, 2025 00:00:00",
       "case_id": "981539000233809044",
@@ -108,20 +38,6 @@
       "status": "Successfully Assisted",
       "suburb": "WYNDHAM VALE",
       "summary": "Applicant recently arrived requiring migrant support assistance, risking inability to meet basic needs without aid.",
-      "tags": [
-        "refugee/migrant"
-      ],
-      "type": "Application"
-    },
-    "981539000233817119": {
-      "case_date": "04 May, 2025 00:00:00",
-      "case_id": "981539000233817119",
-      "postcode": "3174",
-      "stage": "Closed - NO Response",
-      "state": "VIC",
-      "status": "Closed - Not Assisted",
-      "suburb": "NOBLE PARK",
-      "summary": "Refugee family seeking asylum requiring emergency assistance, risking inability to meet basic needs without support.",
       "tags": [
         "refugee/migrant"
       ],
@@ -10532,9 +10448,9 @@
       "case_date": "09 Sep, 2025 00:00:00",
       "case_id": "981539000249308003",
       "postcode": "2193",
-      "stage": "Ongoing Funding",
+      "stage": "Closed - Funded",
       "state": "NSW",
-      "status": "Being Assisted",
+      "status": "Successfully Assisted",
       "suburb": "CANTERBURY",
       "summary": "Refugee family referred for emergency assistance with housing and essential living needs, at risk of homelessness and inability to meet basic daily requirements due to having no income and significant vision impairment.",
       "tags": [
@@ -15685,9 +15601,9 @@
       "case_date": "10 Nov, 2025 00:00:00",
       "case_id": "981539000255988004",
       "postcode": "3029",
-      "stage": "Funding",
+      "stage": "Closed - Funded",
       "state": "VIC",
-      "status": "Being Assisted",
+      "status": "Successfully Assisted",
       "suburb": "TARNEIT",
       "summary": "Applicant facing rent arrears after receiving a second collection notice, risking eviction if assistance is not provided.",
       "tags": [
@@ -17618,7 +17534,7 @@
       "case_date": "03 Dec, 2025 00:00:00",
       "case_id": "981539000258964053",
       "postcode": "2199",
-      "stage": "Waiting On Client",
+      "stage": "NM Approval",
       "state": "NSW",
       "status": "Under Assessment",
       "suburb": "YAGOONA",
@@ -17688,9 +17604,9 @@
       "case_date": "03 Dec, 2025 00:00:00",
       "case_id": "981539000259162001",
       "postcode": "2567",
-      "stage": "NM Approval",
+      "stage": "Closed - NO Response",
       "state": "NSW",
-      "status": "Under Assessment",
+      "status": "Closed - Not Assisted",
       "suburb": "Narellan",
       "summary": "Single mother in crisis refuge with her child seeking emergency support, risking inability to meet basic needs during an already vulnerable time.",
       "tags": [
@@ -18734,7 +18650,7 @@
       "case_date": "15 Dec, 2025 00:00:00",
       "case_id": "981539000260694028",
       "postcode": "2195",
-      "stage": "Interview",
+      "stage": "Waiting On Client",
       "state": "NSW",
       "status": "Under Assessment",
       "suburb": "Sydney NSW",
@@ -18763,7 +18679,7 @@
       "case_date": "16 Dec, 2025 00:00:00",
       "case_id": "981539000260807004",
       "postcode": "3064",
-      "stage": "Ready for Allocation",
+      "stage": "Allocated",
       "state": "VIC",
       "status": "Under Assessment",
       "suburb": "Craigieburn",
@@ -18980,7 +18896,7 @@
       "case_date": "18 Dec, 2025 00:00:00",
       "case_id": "981539000261148004",
       "postcode": "3030",
-      "stage": "Ready for Allocation",
+      "stage": "Allocated",
       "state": "VIC",
       "status": "Under Assessment",
       "suburb": "POINT COOK",
@@ -19085,7 +19001,7 @@
       "case_date": "18 Dec, 2025 00:00:00",
       "case_id": "981539000261251002",
       "postcode": "3047",
-      "stage": "Ready for Allocation",
+      "stage": "Allocated",
       "state": "VIC",
       "status": "Under Assessment",
       "suburb": "Jacana",
@@ -20094,9 +20010,9 @@
       "case_date": "03 Jan, 2026 00:00:00",
       "case_id": "981539000263022012",
       "postcode": "2145",
-      "stage": "Funding",
+      "stage": "Closed - Funded",
       "state": "NSW",
-      "status": "Being Assisted",
+      "status": "Successfully Assisted",
       "suburb": "SOUTH WENTWORTHVILLE",
       "summary": "Applicant requesting emergency food assistance, risking hunger without support.",
       "tags": [
@@ -21623,9 +21539,9 @@
       "case_date": "19 Jan, 2026 00:00:00",
       "case_id": "981539000265058001",
       "postcode": "2122",
-      "stage": "Ongoing Funding",
+      "stage": "Waiting On Client",
       "state": "NSW",
-      "status": "Being Assisted",
+      "status": "Under Assessment",
       "suburb": "Marsfield",
       "summary": "Applicant served with an eviction notice requiring urgent rental assistance to avoid homelessness.",
       "tags": [
@@ -28845,9 +28761,9 @@
       "case_date": "09 Mar, 2026 00:00:00",
       "case_id": "981539000271660004",
       "postcode": "3174",
-      "stage": "NM Approval",
+      "stage": "Ongoing Funding",
       "state": "VIC",
-      "status": "Under Assessment",
+      "status": "Being Assisted",
       "suburb": "NOBLE PARK",
       "summary": "Applicant suffering from a debilitating spinal condition and unable to work, seeking assistance with basic living costs and necessities to avoid hardship.",
       "tags": [
@@ -29071,9 +28987,9 @@
       "case_date": "10 Mar, 2026 00:00:00",
       "case_id": "981539000271804014",
       "postcode": "4131",
-      "stage": "NM Approval",
+      "stage": "Funding",
       "state": "QLD",
-      "status": "Under Assessment",
+      "status": "Being Assisted",
       "suburb": "LOGANLEA",
       "summary": "Applicant referred by a support service requiring financial assistance for a disability assessment, risking inability to access essential NDIS support without funding.",
       "tags": [
@@ -29099,9 +29015,9 @@
       "case_date": "10 Mar, 2026 00:00:00",
       "case_id": "981539000271815071",
       "postcode": "4114",
-      "stage": "NM Approval",
+      "stage": "Funding",
       "state": "QLD",
-      "status": "Under Assessment",
+      "status": "Being Assisted",
       "suburb": "Logan Central",
       "summary": "Applicant referred by a social worker requiring financial assistance for a disability assessment, risking inability to access essential support services without it.",
       "tags": [
@@ -30292,7 +30208,7 @@
       "case_date": "16 Mar, 2026 00:00:00",
       "case_id": "981539000272794027",
       "postcode": "3064",
-      "stage": "Ready for Allocation",
+      "stage": "Ready For Allocation P2",
       "state": "VIC",
       "status": "Under Assessment",
       "suburb": "CRAIGIEBURN",
@@ -31279,9 +31195,9 @@
       "case_date": "19 Mar, 2026 00:00:00",
       "case_id": "981539000273303226",
       "postcode": "3029",
-      "stage": "NM Approval",
+      "stage": "Funding",
       "state": "VIC",
-      "status": "Under Assessment",
+      "status": "Being Assisted",
       "suburb": "VIC",
       "summary": "Father seeking assistance with medical circumcision costs for his son and two orphaned nephews, risking the procedure being unaffordable without support.",
       "tags": [
@@ -32261,7 +32177,7 @@
       "case_date": "24 Mar, 2026 00:00:00",
       "case_id": "981539000273950006",
       "postcode": "2170",
-      "stage": "Interview",
+      "stage": "Waiting On Client",
       "state": "NSW",
       "status": "Under Assessment",
       "suburb": "Casula",
@@ -32983,9 +32899,9 @@
       "case_date": "31 Mar, 2026 00:00:00",
       "case_id": "981539000274862043",
       "postcode": "3000",
-      "stage": "NM Approval",
+      "stage": "Ongoing Funding",
       "state": "VIC",
-      "status": "Under Assessment",
+      "status": "Being Assisted",
       "suburb": "Melbourne",
       "summary": "Applicant facing unemployment and unexpected relocation due to domestic circumstances, seeking rental assistance to avoid homelessness after falling two months behind on rent.",
       "tags": [
@@ -33731,7 +33647,7 @@
       "case_date": "07 Apr, 2026 00:00:00",
       "case_id": "981539000275870008",
       "postcode": "3807",
-      "stage": "Ready for Allocation",
+      "stage": "Ready For Allocation P2",
       "state": "VIC",
       "status": "Under Assessment",
       "suburb": "ENDEVOUR HILLS",
@@ -33773,9 +33689,9 @@
       "case_date": "07 Apr, 2026 00:00:00",
       "case_id": "981539000275986002",
       "postcode": "2161",
-      "stage": "NM Approval",
+      "stage": "Closed - NO Response",
       "state": "NSW",
-      "status": "Under Assessment",
+      "status": "Closed - Not Assisted",
       "suburb": "Guildford",
       "summary": "Applicant facing financial hardship requesting assistance with electricity costs, risking disconnection and inability to meet basic needs.",
       "tags": [
@@ -33950,7 +33866,7 @@
       "case_date": "08 Apr, 2026 00:00:00",
       "case_id": "981539000276168047",
       "postcode": "2795",
-      "stage": "Waiting On Client",
+      "stage": "Follow Up",
       "state": "NSW",
       "status": "Under Assessment",
       "suburb": "Bathurst",
@@ -35265,7 +35181,7 @@
       "case_date": "18 Apr, 2026 00:00:00",
       "case_id": "981539000277520002",
       "postcode": "3064",
-      "stage": "Follow Up",
+      "stage": "NM Approval",
       "state": "VIC",
       "status": "Under Assessment",
       "suburb": "Donnybrook",
@@ -35400,9 +35316,9 @@
       "case_date": "20 Apr, 2026 00:00:00",
       "case_id": "981539000277736003",
       "postcode": "2170",
-      "stage": "Closed - NO Response",
+      "stage": "Ready for Allocation",
       "state": "NSW",
-      "status": "Closed - Not Assisted",
+      "status": "Under Assessment",
       "suburb": "Liverpool",
       "summary": "Refugee family recently arrived and facing financial hardship due to multiple medical appointments for the mother and her elderly dependant, risking inability to meet essential needs.",
       "tags": [
@@ -35477,7 +35393,7 @@
       "case_date": "21 Apr, 2026 00:00:00",
       "case_id": "981539000277846007",
       "postcode": "3064",
-      "stage": "Ready For Allocation P2",
+      "stage": "Waiting On Client",
       "state": "VIC",
       "status": "Under Assessment",
       "suburb": "Thomastown",
@@ -35629,9 +35545,9 @@
       "case_date": "23 Apr, 2026 00:00:00",
       "case_id": "981539000278044062",
       "postcode": "3175",
-      "stage": "Intake",
+      "stage": "Ready for Allocation",
       "state": "VIC",
-      "status": "Pending Review",
+      "status": "Under Assessment",
       "suburb": "Dandenong north",
       "summary": "Student facing financial hardship due to reduced household income, risking inability to cover rent and essential utility bills.",
       "tags": [
@@ -35645,9 +35561,9 @@
       "case_date": "24 Apr, 2026 00:00:00",
       "case_id": "981539000278052041",
       "postcode": "2195",
-      "stage": "Intake",
+      "stage": "Ready for Allocation",
       "state": "NSW",
-      "status": "Pending Review",
+      "status": "Under Assessment",
       "suburb": "Lakemba",
       "summary": "Applicant facing ongoing health issues on a limited government income, risking inability to afford rent, utilities, medication, and specialist care without financial support.",
       "tags": [
@@ -35661,9 +35577,9 @@
       "case_date": "24 Apr, 2026 00:00:00",
       "case_id": "981539000278060048",
       "postcode": "2200",
-      "stage": "Intake",
+      "stage": "Ready for Allocation",
       "state": "NSW",
-      "status": "Pending Review",
+      "status": "Under Assessment",
       "suburb": "Bankstown",
       "summary": "Single mother seeking financial assistance while actively seeking employment, unable to meet basic needs on government income alone.",
       "tags": [
@@ -35675,9 +35591,9 @@
       "case_date": "24 Apr, 2026 00:00:00",
       "case_id": "981539000278060094",
       "postcode": "2195",
-      "stage": "Intake",
+      "stage": "Closed - Not Funded",
       "state": "NSW",
-      "status": "Pending Review",
+      "status": "Closed - Not Assisted",
       "suburb": "Lakebma",
       "summary": "Applicant managing ongoing health issues struggling to afford medication, rent, utilities, transport, and food on insufficient government income, risking inability to meet basic needs.",
       "tags": [
@@ -35691,9 +35607,9 @@
       "case_date": "24 Apr, 2026 00:00:00",
       "case_id": "981539000278073081",
       "postcode": "2195",
-      "stage": "Intake",
+      "stage": "Closed - Not Funded",
       "state": "NSW",
-      "status": "Pending Review",
+      "status": "Closed - Not Assisted",
       "suburb": "Lakemba",
       "summary": "Applicant living with a mental health condition is unable to secure employment, risking inability to meet basic needs including food, transport, and energy bills on insufficient government income.",
       "tags": [
@@ -35722,9 +35638,9 @@
       "case_date": "24 Apr, 2026 00:00:00",
       "case_id": "981539000278080067",
       "postcode": "2200",
-      "stage": "Intake",
+      "stage": "Closed - Not Funded",
       "state": "NSW",
-      "status": "Pending Review",
+      "status": "Closed - Not Assisted",
       "suburb": "Bankstown",
       "summary": "Applicant seeking financial assistance to meet basic needs, risking inability to cope with the rising cost of daily living.",
       "tags": [
@@ -35778,9 +35694,9 @@
       "case_date": "24 Apr, 2026 00:00:00",
       "case_id": "981539000278113023",
       "postcode": "2200",
-      "stage": "Intake",
+      "stage": "Ready for Allocation",
       "state": "NSW",
-      "status": "Pending Review",
+      "status": "Under Assessment",
       "suburb": "Bankstown",
       "summary": "Single mother seeking financial assistance to meet basic needs including food, rent, energy bills, medication, and transportation, risking inability to sustain essential living costs.",
       "tags": [
@@ -35822,7 +35738,7 @@
       "case_date": "24 Apr, 2026 00:00:00",
       "case_id": "981539000278115068",
       "postcode": "3046",
-      "stage": "Allocated",
+      "stage": "Waiting On Client",
       "state": "VIC",
       "status": "Under Assessment",
       "suburb": "Glenroy",
@@ -35910,9 +35826,9 @@
       "case_date": "29 Apr, 2026 00:00:00",
       "case_id": "981539000278235061",
       "postcode": "2200",
-      "stage": "Intake",
+      "stage": "Closed - Not Funded",
       "state": "NSW",
-      "status": "Pending Review",
+      "status": "Closed - Not Assisted",
       "suburb": "Bankstown",
       "summary": "Applicant facing financial hardship and health issues, unable to afford basic living expenses including food, transport, rent, energy bills, and medication without support.",
       "tags": [
@@ -35940,9 +35856,9 @@
       "case_date": "29 Apr, 2026 00:00:00",
       "case_id": "981539000278239090",
       "postcode": "2200",
-      "stage": "Intake",
+      "stage": "Closed - Not Funded",
       "state": "NSW",
-      "status": "Pending Review",
+      "status": "Closed - Not Assisted",
       "suburb": "Bankstown",
       "summary": "Student studying medicine receiving government assistance but struggling to afford food, transport, and rent, risking inability to meet basic needs.",
       "tags": [
@@ -36018,7 +35934,7 @@
       "case_date": "28 Apr, 2026 00:00:00",
       "case_id": "981539000278250042",
       "postcode": "2200",
-      "stage": "Ready For Allocation P2",
+      "stage": "NM Approval",
       "state": "NSW",
       "status": "Under Assessment",
       "suburb": "CONDELL PARK",
@@ -36048,7 +35964,7 @@
       "case_date": "26 Apr, 2026 00:00:00",
       "case_id": "981539000278273001",
       "postcode": "3171",
-      "stage": "Ready For Allocation P2",
+      "stage": "Interview",
       "state": "VIC",
       "status": "Under Assessment",
       "suburb": "Springvale",
@@ -36064,9 +35980,9 @@
       "case_date": "28 Apr, 2026 00:00:00",
       "case_id": "981539000278276024",
       "postcode": "3029",
-      "stage": "Intake",
+      "stage": "Closed - Not Funded",
       "state": "VIC",
-      "status": "Pending Review",
+      "status": "Closed - Not Assisted",
       "suburb": "Tarneit",
       "summary": "Mother requesting urgent assistance to purchase school laptops for her children, risking their enrolment being withdrawn due to prolonged financial hardship following a period of family unemployment.",
       "tags": [
@@ -36080,9 +35996,9 @@
       "case_date": "28 Apr, 2026 00:00:00",
       "case_id": "981539000278278011",
       "postcode": "3029",
-      "stage": "Intake",
+      "stage": "Closed - Funded",
       "state": "VIC",
-      "status": "Pending Review",
+      "status": "Successfully Assisted",
       "suburb": "TARNEIT",
       "summary": "Applicant is homeless and in urgent need of temporary accommodation, risking exposure and deteriorating wellbeing without immediate shelter.",
       "tags": [
@@ -36169,9 +36085,9 @@
       "case_date": "28 Apr, 2026 00:00:00",
       "case_id": "981539000278294113",
       "postcode": "3763",
-      "stage": "Intake",
+      "stage": "Closed - Not Funded",
       "state": "VIC",
-      "status": "Pending Review",
+      "status": "Closed - Not Assisted",
       "suburb": "KINGLAKE",
       "summary": "Applicant with a disability seeking assistance with NGO registration costs, risking the loss of an advocacy organisation that would support millions of underserved people with disabilities.",
       "tags": [
@@ -36183,9 +36099,9 @@
       "case_date": "29 Apr, 2026 00:00:00",
       "case_id": "981539000278295092",
       "postcode": "2200",
-      "stage": "Intake",
+      "stage": "Ready for Allocation",
       "state": "NSW",
-      "status": "Pending Review",
+      "status": "Under Assessment",
       "suburb": "Bankstown",
       "summary": "Applicant facing financial hardship due to health issues, struggling to cover essential living expenses including food, transport, rent, energy bills, and medication.",
       "tags": [
@@ -36243,7 +36159,7 @@
       "case_date": "29 Apr, 2026 00:00:00",
       "case_id": "981539000278304048",
       "postcode": "2161",
-      "stage": "NM Approval",
+      "stage": "Follow Up",
       "state": "NSW",
       "status": "Under Assessment",
       "suburb": "Guildford",
@@ -36317,9 +36233,9 @@
       "case_date": "27 Apr, 2026 00:00:00",
       "case_id": "981539000278312006",
       "postcode": "3029",
-      "stage": "Intake",
+      "stage": "Closed - Not Funded",
       "state": "VIC",
-      "status": "Pending Review",
+      "status": "Closed - Not Assisted",
       "suburb": "Tarneit",
       "summary": "Single mother unable to work due to mental health challenges and family responsibilities, risking inability to meet basic living expenses for herself and her two children.",
       "tags": [
@@ -36418,9 +36334,9 @@
       "case_date": "29 Apr, 2026 00:00:00",
       "case_id": "981539000278399090",
       "postcode": "4122",
-      "stage": "Intake",
+      "stage": "Closed - Not Funded",
       "state": "QLD",
-      "status": "Pending Review",
+      "status": "Closed - Not Assisted",
       "suburb": "mansfield",
       "summary": "Refugee family from a conflict zone facing imminent visa expiry with young children, unable to secure legal representation and at risk of deportation.",
       "tags": [
@@ -36567,7 +36483,7 @@
       "case_date": "30 Apr, 2026 00:00:00",
       "case_id": "981539000278681024",
       "postcode": "2200",
-      "stage": "Ready For Allocation P2",
+      "stage": "Waiting On Client",
       "state": "NSW",
       "status": "Under Assessment",
       "suburb": "Bankstown",
@@ -36672,9 +36588,9 @@
       "case_date": "01 May, 2026 00:00:00",
       "case_id": "981539000278882001",
       "postcode": "2190",
-      "stage": "Intake",
+      "stage": "Closed - Not Funded",
       "state": "NSW",
-      "status": "Pending Review",
+      "status": "Closed - Not Assisted",
       "suburb": "Greenacre",
       "summary": "Father with an unresolved visa situation and inconsistent income requesting rental bond and living expense assistance, risking his pregnant wife and toddler remaining in unsuitable temporary accommodation.",
       "tags": [
@@ -36849,6 +36765,35 @@
       ],
       "type": "Application"
     },
+    "981539000279015034": {
+      "case_date": "05 May, 2026 00:00:00",
+      "case_id": "981539000279015034",
+      "postcode": "2200",
+      "stage": "Intake",
+      "state": "NSW",
+      "status": "Pending Review",
+      "suburb": "Condell Park",
+      "summary": "Refugee family facing financial hardship while pursuing overseas medical credential recognition, risking inability to cover essential study and living expenses.",
+      "tags": [
+        "refugee/migrant"
+      ],
+      "type": "Application"
+    },
+    "981539000279015046": {
+      "case_date": "05 May, 2026 00:00:00",
+      "case_id": "981539000279015046",
+      "postcode": "2165",
+      "stage": "Intake",
+      "state": "NSW",
+      "status": "Pending Review",
+      "suburb": "FAIRFIELD",
+      "summary": "Refugee family member recently diagnosed with breast and lymphatic cancer facing financial hardship, risking inability to focus on critical surgery and ongoing treatment without support.",
+      "tags": [
+        "medical",
+        "family hardship"
+      ],
+      "type": "Application"
+    },
     "981539000279022001": {
       "case_date": "02 May, 2026 00:00:00",
       "case_id": "981539000279022001",
@@ -36883,9 +36828,9 @@
       "case_date": "04 May, 2026 00:00:00",
       "case_id": "981539000279033010",
       "postcode": "2198",
-      "stage": "Intake",
+      "stage": "NM Approval",
       "state": "NSW",
-      "status": "Pending Review",
+      "status": "Under Assessment",
       "suburb": "Georges Hall",
       "summary": "Refugee family facing eviction due to injury and mental health barriers to employment, risking homelessness with an infant.",
       "tags": [
@@ -36936,6 +36881,36 @@
       ],
       "type": "Application"
     },
+    "981539000279062077": {
+      "case_date": "05 May, 2026 00:00:00",
+      "case_id": "981539000279062077",
+      "postcode": "2144",
+      "stage": "Ready For Allocation P2",
+      "state": "NSW",
+      "status": "Under Assessment",
+      "suburb": "Auburn",
+      "summary": "Single mother seeking financial assistance to finalise her divorce, unable to afford the required legal costs without support.",
+      "tags": [
+        "single parent"
+      ],
+      "type": "Application"
+    },
+    "981539000279062089": {
+      "case_date": "05 May, 2026 00:00:00",
+      "case_id": "981539000279062089",
+      "postcode": "3804",
+      "stage": "Intake",
+      "state": "VIC",
+      "status": "Pending Review",
+      "suburb": "NARRE WARREN NORTH",
+      "summary": "Single mother facing financial hardship requesting rental assistance, risking inability to house her family.",
+      "tags": [
+        "rent assistance",
+        "single parent",
+        "family hardship"
+      ],
+      "type": "Application"
+    },
     "981539000279066001": {
       "case_date": "03 May, 2026 00:00:00",
       "case_id": "981539000279066001",
@@ -36954,9 +36929,9 @@
       "case_date": "04 May, 2026 00:00:00",
       "case_id": "981539000279073001",
       "postcode": "2300",
-      "stage": "Intake",
+      "stage": "Closed - Funded",
       "state": "NSW",
-      "status": "Pending Review",
+      "status": "Successfully Assisted",
       "suburb": "Bankstown",
       "summary": "Applicant facing financial hardship requesting emergency assistance, risking inability to meet basic needs.",
       "tags": [
@@ -36990,6 +36965,50 @@
       "suburb": "swan hill",
       "summary": "Single mother unable to work due to illness, struggling to pay overdue bills and support her child with daily essentials.",
       "tags": [
+        "family hardship"
+      ],
+      "type": "Application"
+    },
+    "981539000279073080": {
+      "case_date": "05 May, 2026 00:00:00",
+      "case_id": "981539000279073080",
+      "postcode": "5008",
+      "stage": "Intake",
+      "state": "SA",
+      "status": "Pending Review",
+      "suburb": "Croydon park",
+      "summary": "Single mother managing household finances alone with two children, facing disconnection of essential power and gas services without urgent bill assistance.",
+      "tags": [
+        "utilities"
+      ],
+      "type": "Application"
+    },
+    "981539000279073092": {
+      "case_date": "05 May, 2026 00:00:00",
+      "case_id": "981539000279073092",
+      "postcode": "2200",
+      "stage": "Intake",
+      "state": "NSW",
+      "status": "Pending Review",
+      "suburb": "CONDELL PARK",
+      "summary": "Refugee family seeking access to financial assistance programs, risking inability to meet basic needs without support.",
+      "tags": [
+        "refugee/migrant"
+      ],
+      "type": "Application"
+    },
+    "981539000279074016": {
+      "case_date": "05 May, 2026 00:00:00",
+      "case_id": "981539000279074016",
+      "postcode": "3076",
+      "stage": "Intake",
+      "state": "VIC",
+      "status": "Pending Review",
+      "suburb": "Epping",
+      "summary": "Refugee family member facing chronic skin conditions and mental health challenges without access to medical or psychological treatment, risking further physical and emotional deterioration.",
+      "tags": [
+        "medical",
+        "mental health",
         "family hardship"
       ],
       "type": "Application"
@@ -37070,9 +37089,9 @@
       "case_date": "04 May, 2026 00:00:00",
       "case_id": "981539000279101013",
       "postcode": "2170",
-      "stage": "Intake",
+      "stage": "Closed - Not Funded",
       "state": "NSW",
-      "status": "Pending Review",
+      "status": "Closed - Not Assisted",
       "suburb": "Liverpool",
       "summary": "Brother facing significant financial hardship due to legal fees after being accused of workplace harassment, risking inability to afford continued legal representation.",
       "tags": [
@@ -37112,18 +37131,62 @@
       ],
       "type": "Application"
     },
+    "981539000279105012": {
+      "case_date": "05 May, 2026 00:00:00",
+      "case_id": "981539000279105012",
+      "postcode": "2560",
+      "stage": "Intake",
+      "state": "NSW",
+      "status": "Pending Review",
+      "suburb": "Leumeah",
+      "summary": "Mother facing eviction with four children including a newborn, unable to cover $4,200 in rent arrears and at risk of homelessness.",
+      "tags": [
+        "rent assistance",
+        "housing",
+        "emergency relief"
+      ],
+      "type": "Application"
+    },
+    "981539000279107008": {
+      "case_date": "05 May, 2026 00:00:00",
+      "case_id": "981539000279107008",
+      "postcode": "2200",
+      "stage": "Intake",
+      "state": "NSW",
+      "status": "Pending Review",
+      "suburb": "CONDELL PARK",
+      "summary": "Refugee family facing financial hardship struggling to meet daily living costs, risking inability to access essential community support programs.",
+      "tags": [
+        "refugee/migrant"
+      ],
+      "type": "Application"
+    },
     "981539000279111040": {
       "case_date": "04 May, 2026 00:00:00",
       "case_id": "981539000279111040",
       "postcode": "5115",
-      "stage": "Intake",
+      "stage": "Allocated",
       "state": "SA",
-      "status": "Pending Review",
+      "status": "Under Assessment",
       "suburb": "Munno Para Downs",
       "summary": "Applicant facing financial hardship requesting assistance with essential bills, food, and school fees, risking inability to meet basic family needs.",
       "tags": [
         "food/groceries",
         "school fees"
+      ],
+      "type": "Application"
+    },
+    "981539000279113021": {
+      "case_date": "05 May, 2026 00:00:00",
+      "case_id": "981539000279113021",
+      "postcode": "2200",
+      "stage": "Intake",
+      "state": "NSW",
+      "status": "Pending Review",
+      "suburb": "CONDELL PARK",
+      "summary": "Refugee family facing financial hardship struggling to meet daily living expenses, risking inability to access essential community support programs.",
+      "tags": [
+        "refugee/migrant"
       ],
       "type": "Application"
     },
@@ -37161,9 +37224,9 @@
       "case_date": "04 May, 2026 00:00:00",
       "case_id": "981539000279118020",
       "postcode": "2141",
-      "stage": "Intake",
+      "stage": "Closed - Not Funded",
       "state": "NSW",
-      "status": "Pending Review",
+      "status": "Closed - Not Assisted",
       "suburb": "berala",
       "summary": "Father facing financial hardship due to a medical hospitalisation, risking inability to cover rent, bills, and food for his wife and two children.",
       "tags": [
@@ -37172,8 +37235,139 @@
         "family hardship"
       ],
       "type": "Application"
+    },
+    "981539000279132012": {
+      "case_date": "05 May, 2026 00:00:00",
+      "case_id": "981539000279132012",
+      "postcode": "2200",
+      "stage": "Intake",
+      "state": "NSW",
+      "status": "Pending Review",
+      "suburb": "CONDELL PARK",
+      "summary": "Refugee family facing financial hardship struggling to meet daily living expenses, risking inability to access essential community programs and support.",
+      "tags": [
+        "refugee/migrant"
+      ],
+      "type": "Application"
+    },
+    "981539000279246001": {
+      "case_date": "05 May, 2026 00:00:00",
+      "case_id": "981539000279246001",
+      "postcode": "3060",
+      "stage": "Intake",
+      "state": "VIC",
+      "status": "Pending Review",
+      "suburb": "Fawkner",
+      "summary": "Applicant fleeing family violence has been left homeless with no income, risking inability to meet basic needs or find safe shelter.",
+      "tags": [
+        "job loss",
+        "housing"
+      ],
+      "type": "Application"
+    },
+    "981539000279253003": {
+      "case_date": "05 May, 2026 00:00:00",
+      "case_id": "981539000279253003",
+      "postcode": "3020",
+      "stage": "Intake",
+      "state": "VIC",
+      "status": "Pending Review",
+      "suburb": "Sunshine North",
+      "summary": "Elderly applicant unable to finalise her late husband's funeral invoice, relying solely on government payments for daily living costs with no stable housing.",
+      "tags": [
+        "debt",
+        "funeral costs",
+        "job loss"
+      ],
+      "type": "Application"
+    },
+    "981539000279264001": {
+      "case_date": "05 May, 2026 00:00:00",
+      "case_id": "981539000279264001",
+      "postcode": "2168",
+      "stage": "Intake",
+      "state": "NSW",
+      "status": "Pending Review",
+      "suburb": "Cartwright",
+      "summary": "Applicant facing financial hardship requesting emergency assistance, risking inability to meet basic needs.",
+      "tags": [
+        "family hardship"
+      ],
+      "type": "Application"
+    },
+    "981539000279276004": {
+      "case_date": "05 May, 2026 00:00:00",
+      "case_id": "981539000279276004",
+      "postcode": "2217",
+      "stage": "Intake",
+      "state": "NSW",
+      "status": "Pending Review",
+      "suburb": "Kogarah",
+      "summary": "Applicant requiring assistance with funeral costs for a deceased person of Muslim faith who has no family or next of kin, risking an undignified burial without support.",
+      "tags": [
+        "medical",
+        "funeral costs"
+      ],
+      "type": "Application"
+    },
+    "981539000279285001": {
+      "case_date": "05 May, 2026 00:00:00",
+      "case_id": "981539000279285001",
+      "postcode": "6107",
+      "stage": "Intake",
+      "state": "WA",
+      "status": "Pending Review",
+      "suburb": "EAST CANNINGTON",
+      "summary": "Applicant facing sudden job loss requesting emergency assistance with rent arrears and bills, risking homelessness and inability to afford food.",
+      "tags": [
+        "rent assistance",
+        "job loss"
+      ],
+      "type": "Application"
+    },
+    "981539000279293002": {
+      "case_date": "05 May, 2026 00:00:00",
+      "case_id": "981539000279293002",
+      "postcode": "3022",
+      "stage": "Intake",
+      "state": "VIC",
+      "status": "Pending Review",
+      "suburb": "Ardeer",
+      "summary": "Elderly applicant's funeral costs require charitable assistance, with an outstanding balance preventing the completion of dignified burial arrangements.",
+      "tags": [
+        "funeral costs"
+      ],
+      "type": "Application"
+    },
+    "981539000279316003": {
+      "case_date": "05 May, 2026 00:00:00",
+      "case_id": "981539000279316003",
+      "postcode": "2163",
+      "stage": "Intake",
+      "state": "NSW",
+      "status": "Pending Review",
+      "suburb": "Villawood",
+      "summary": "Applicant involved in a car accident requiring vehicle repair assistance, risking inability to travel for essential needs without support.",
+      "tags": [
+        "fuel/transport"
+      ],
+      "type": "Application"
+    },
+    "981539000279344001": {
+      "case_date": "05 May, 2026 00:00:00",
+      "case_id": "981539000279344001",
+      "postcode": "4401",
+      "stage": "Intake",
+      "state": "QLD",
+      "status": "Pending Review",
+      "suburb": "Oakey",
+      "summary": "Single mother facing unemployment and minimal government support, unable to pay essential utility and registration bills or provide food for her child.",
+      "tags": [
+        "food/groceries"
+      ],
+      "type": "Application"
     }
   },
-  "last_updated": "2026-05-04T22:58:02.390799+00:00",
+  "last_updated": "2026-05-05T22:56:17.395347+00:00",
   "version": 1
 }
