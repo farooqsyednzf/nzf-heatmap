@@ -1,79 +1,5 @@
 {
   "cases": {
-    "981539000234354001": {
-      "case_date": "08 May, 2025 00:00:00",
-      "case_id": "981539000234354001",
-      "postcode": "2190",
-      "stage": "Closed - Funded",
-      "state": "NSW",
-      "status": "Successfully Assisted",
-      "suburb": "BANKSTOWN",
-      "summary": "Single father to six children requesting assistance with daily living costs, risking inability to provide basic necessities for his family.",
-      "tags": [
-        "single parent"
-      ],
-      "type": "Application"
-    },
-    "981539000234395001": {
-      "case_date": "08 May, 2025 00:00:00",
-      "case_id": "981539000234395001",
-      "postcode": "2145",
-      "stage": "Closed - Funded",
-      "state": "NSW",
-      "status": "Successfully Assisted",
-      "suburb": "WESTMEAD",
-      "summary": "Single mother seeking support due to financial hardship, risking inability to provide for her children.",
-      "tags": [
-        "single parent"
-      ],
-      "type": "Application"
-    },
-    "981539000234406003": {
-      "case_date": "08 May, 2025 00:00:00",
-      "case_id": "981539000234406003",
-      "postcode": "4503",
-      "stage": "Closed - NO Response",
-      "state": "QLD",
-      "status": "Closed - Not Assisted",
-      "suburb": "Griffin",
-      "summary": "Single mother fleeing a domestic violence relationship seeking assistance with groceries and fuel, risking inability to provide basic necessities for her family.",
-      "tags": [
-        "food/groceries",
-        "single parent",
-        "fuel/transport"
-      ],
-      "type": "Application"
-    },
-    "981539000234419002": {
-      "case_date": "08 May, 2025 00:00:00",
-      "case_id": "981539000234419002",
-      "postcode": "6105",
-      "stage": "Closed - NO Response",
-      "state": "WA",
-      "status": "Closed - Not Assisted",
-      "suburb": "Cloverdale",
-      "summary": "Applicant seeking daily living assistance and employment support, risking inability to maintain independence or secure stable income without help.",
-      "tags": [
-        "family hardship"
-      ],
-      "type": "Application"
-    },
-    "981539000234496001": {
-      "case_date": "08 May, 2025 00:00:00",
-      "case_id": "981539000234496001",
-      "postcode": "2200",
-      "stage": "Closed - Funded",
-      "state": "NSW",
-      "status": "Successfully Assisted",
-      "suburb": "NO FIXED ADDRESS",
-      "summary": "Refugee family on a bridging visa without working rights facing homelessness, unable to afford accommodation, food, or medication while living from their car.",
-      "tags": [
-        "food/groceries",
-        "medical",
-        "housing"
-      ],
-      "type": "Application"
-    },
     "981539000234589067": {
       "case_date": "12 May, 2025 00:00:00",
       "case_id": "981539000234589067",
@@ -37647,8 +37573,69 @@
         "food/groceries"
       ],
       "type": "Application"
+    },
+    "981539000279790003": {
+      "case_date": "09 May, 2026 00:00:00",
+      "case_id": "981539000279790003",
+      "postcode": "6030",
+      "stage": "Intake",
+      "state": "WA",
+      "status": "Pending Review",
+      "suburb": "Clarkson",
+      "summary": "Father recovering from surgery following the loss of his newborn daughter requesting emergency assistance, unable to work or meet basic living expenses including rent and medical bills.",
+      "tags": [
+        "rent assistance",
+        "medical",
+        "family hardship"
+      ],
+      "type": "Application"
+    },
+    "981539000279810002": {
+      "case_date": "09 May, 2026 00:00:00",
+      "case_id": "981539000279810002",
+      "postcode": "3000",
+      "stage": "Intake",
+      "state": "VIC",
+      "status": "Pending Review",
+      "suburb": "-",
+      "summary": "Applicant's family requires assistance with repatriation costs for a deceased homeless relative, risking inability to return the body to next of kin abroad.",
+      "tags": [
+        "funeral costs",
+        "housing"
+      ],
+      "type": "Application"
+    },
+    "981539000279824001": {
+      "case_date": "09 May, 2026 00:00:00",
+      "case_id": "981539000279824001",
+      "postcode": "2145",
+      "stage": "Intake",
+      "state": "NSW",
+      "status": "Pending Review",
+      "suburb": "greystanes",
+      "summary": "Mother seeking emergency support to escape a volatile and threatening home situation, risking ongoing harm to herself and her five children without immediate assistance.",
+      "tags": [
+        "family hardship"
+      ],
+      "type": "Application"
+    },
+    "981539000279840001": {
+      "case_date": "09 May, 2026 00:00:00",
+      "case_id": "981539000279840001",
+      "postcode": "2197",
+      "stage": "Intake",
+      "state": "NSW",
+      "status": "Pending Review",
+      "suburb": "Bass Hill",
+      "summary": "Single mother with severe diabetes and no stable income struggling to afford medication, rent, and basic needs for her young child, risking homelessness and deteriorating health without urgent assistance.",
+      "tags": [
+        "rent assistance",
+        "medical",
+        "single parent"
+      ],
+      "type": "Application"
     }
   },
-  "last_updated": "2026-05-08T22:55:31.840342+00:00",
+  "last_updated": "2026-05-09T22:45:36.456863+00:00",
   "version": 1
 }
