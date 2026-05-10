@@ -44,21 +44,6 @@
       ],
       "type": "Application"
     },
-    "981539000234625016": {
-      "case_date": "09 May, 2025 00:00:00",
-      "case_id": "981539000234625016",
-      "postcode": "5000",
-      "stage": "Closed - Funded",
-      "state": "SA",
-      "status": "Successfully Assisted",
-      "suburb": "Adelaide",
-      "summary": "Single mother recently arrived seeking migrant support, risking inability to meet basic needs for herself and her children without assistance.",
-      "tags": [
-        "refugee/migrant",
-        "single parent"
-      ],
-      "type": "Application"
-    },
     "981539000234647034": {
       "case_date": "12 May, 2025 00:00:00",
       "case_id": "981539000234647034",
@@ -71,35 +56,6 @@
       "tags": [
         "rent assistance",
         "medical"
-      ],
-      "type": "Application"
-    },
-    "981539000234648002": {
-      "case_date": "09 May, 2025 00:00:00",
-      "case_id": "981539000234648002",
-      "postcode": "3075",
-      "stage": "Closed - NO Response",
-      "state": "VIC",
-      "status": "Closed - Not Assisted",
-      "suburb": "Lalor",
-      "summary": "Applicant requesting assistance to replace a work vehicle, risking loss of employment without support.",
-      "tags": [
-        "family hardship"
-      ],
-      "type": "Application"
-    },
-    "981539000234648080": {
-      "case_date": "09 May, 2025 00:00:00",
-      "case_id": "981539000234648080",
-      "postcode": "2190",
-      "stage": "Closed - NO Response",
-      "state": "NSW",
-      "status": "Closed - Not Assisted",
-      "suburb": "Greenacre",
-      "summary": "Single mother of four children requesting assistance with utility bills and daily living expenses, risking inability to meet basic needs for her family.",
-      "tags": [
-        "utilities",
-        "single parent"
       ],
       "type": "Application"
     },
@@ -189,20 +145,6 @@
       ],
       "type": "Application"
     },
-    "981539000234694003": {
-      "case_date": "09 May, 2025 00:00:00",
-      "case_id": "981539000234694003",
-      "postcode": "3067",
-      "stage": "Closed - NO Response",
-      "state": "VIC",
-      "status": "Closed - Not Assisted",
-      "suburb": "ABBOTSFORD",
-      "summary": "Applicant seeking assistance with daily living costs while supporting children abroad, risking inability to meet basic needs for themselves and their family.",
-      "tags": [
-        "family hardship"
-      ],
-      "type": "Application"
-    },
     "981539000234694030": {
       "case_date": "11 May, 2025 00:00:00",
       "case_id": "981539000234694030",
@@ -228,35 +170,6 @@
       "summary": "Refugee family recently arrived requiring emergency relief, unable to cover basic essentials.",
       "tags": [
         "family hardship"
-      ],
-      "type": "Application"
-    },
-    "981539000234702001": {
-      "case_date": "09 May, 2025 00:00:00",
-      "case_id": "981539000234702001",
-      "postcode": "3029",
-      "stage": "Funding",
-      "state": "VIC",
-      "status": "Being Assisted",
-      "suburb": "Truganina",
-      "summary": "Applicant requires assistance with school fees, risking children's access to education without support.",
-      "tags": [
-        "school fees",
-        "refugee/migrant"
-      ],
-      "type": "Application"
-    },
-    "981539000234705009": {
-      "case_date": "09 May, 2025 00:00:00",
-      "case_id": "981539000234705009",
-      "postcode": "2530",
-      "stage": "Closed - Not Funded",
-      "state": "NSW",
-      "status": "Closed - Not Assisted",
-      "suburb": "KOONAWARRA",
-      "summary": "Refugee family requesting assistance with private school fees for their children's education, risking loss of access to cultural and religious learning.",
-      "tags": [
-        "refugee/migrant"
       ],
       "type": "Application"
     },
@@ -288,20 +201,6 @@
       ],
       "type": "Application"
     },
-    "981539000234716009": {
-      "case_date": "09 May, 2025 00:00:00",
-      "case_id": "981539000234716009",
-      "postcode": "2016",
-      "stage": "Closed - NO Response",
-      "state": "NSW",
-      "status": "Closed - Not Assisted",
-      "suburb": "REDFERN",
-      "summary": "Applicant experiencing financial hardship due to rising living costs, relying on others for housing and risking homelessness without support.",
-      "tags": [
-        "family hardship"
-      ],
-      "type": "Application"
-    },
     "981539000234716043": {
       "case_date": "10 May, 2025 00:00:00",
       "case_id": "981539000234716043",
@@ -313,20 +212,6 @@
       "summary": "Applicant seeking assistance for a family member experiencing mental health difficulties, risking deterioration without timely support.",
       "tags": [
         "mental health"
-      ],
-      "type": "Application"
-    },
-    "981539000234718001": {
-      "case_date": "09 May, 2025 00:00:00",
-      "case_id": "981539000234718001",
-      "postcode": "2197",
-      "stage": "Closed - Funded",
-      "state": "NSW",
-      "status": "Successfully Assisted",
-      "suburb": "Bass hill",
-      "summary": "Applicant requesting assistance with utility bills, risking disconnection and inability to meet basic household needs.",
-      "tags": [
-        "utilities"
       ],
       "type": "Application"
     },
@@ -37619,6 +37504,37 @@
       ],
       "type": "Application"
     },
+    "981539000279828004": {
+      "case_date": "10 May, 2026 00:00:00",
+      "case_id": "981539000279828004",
+      "postcode": "2145",
+      "stage": "Intake",
+      "state": "NSW",
+      "status": "Pending Review",
+      "suburb": "Westmead",
+      "summary": "Single mother facing financial hardship with insufficient government support, unable to cover outstanding bills or provide basic groceries.",
+      "tags": [
+        "food/groceries",
+        "family hardship"
+      ],
+      "type": "Application"
+    },
+    "981539000279837008": {
+      "case_date": "10 May, 2026 00:00:00",
+      "case_id": "981539000279837008",
+      "postcode": "3690",
+      "stage": "Intake",
+      "state": "VIC",
+      "status": "Pending Review",
+      "suburb": "WODONGA",
+      "summary": "Brother caring for two younger siblings following the recent loss of both parents, with no funds for food, school necessities, or critical daily medication, risking his sibling's health and the family's basic survival.",
+      "tags": [
+        "food/groceries",
+        "medical",
+        "fuel/transport"
+      ],
+      "type": "Application"
+    },
     "981539000279840001": {
       "case_date": "09 May, 2026 00:00:00",
       "case_id": "981539000279840001",
@@ -37634,8 +37550,38 @@
         "single parent"
       ],
       "type": "Application"
+    },
+    "981539000279853002": {
+      "case_date": "10 May, 2026 00:00:00",
+      "case_id": "981539000279853002",
+      "postcode": "2145",
+      "stage": "Intake",
+      "state": "NSW",
+      "status": "Pending Review",
+      "suburb": "Auburn",
+      "summary": "Applicant seeking assistance with funeral debt and outstanding bills, risking ongoing financial hardship without support.",
+      "tags": [
+        "debt",
+        "funeral costs"
+      ],
+      "type": "Application"
+    },
+    "981539000279868002": {
+      "case_date": "10 May, 2026 00:00:00",
+      "case_id": "981539000279868002",
+      "postcode": "2064",
+      "stage": "Intake",
+      "state": "NSW",
+      "status": "Pending Review",
+      "suburb": "Artarmon",
+      "summary": "Single mother requesting emergency assistance with food and fuel, unable to care for her infant and school-aged children while suffering from severe dental pain.",
+      "tags": [
+        "food/groceries",
+        "fuel/transport"
+      ],
+      "type": "Application"
     }
   },
-  "last_updated": "2026-05-09T22:45:36.456863+00:00",
+  "last_updated": "2026-05-10T22:48:33.487204+00:00",
   "version": 1
 }
